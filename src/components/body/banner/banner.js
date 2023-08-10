@@ -7,7 +7,7 @@ const Banner = () =>(
         
         <div class = "row mb-5">
 
-            <div class = "col-lg-5 col-sm-12 pt-5 ps-5" id="banner-left-col">
+            <div class = "col-lg-5 col-sm-12 pt-5 ps-lg-5" id="banner-left-col">
                 <h1 class="display-1 text-start ps-5">Hi, I'm <span class="text-primary fw-bold">Vincenzo</span>.</h1>
                 <p class="pt-1 h5 fw-light text-start ps-5" id="opening-bio">
                     Inspired by the Age of Digital Technology and AI, I envision creative, intutive solutions to any given problem, whether simple or complex.
