@@ -1,12 +1,16 @@
 
 #banner-container {
     /* background-image: linear-gradient(darkslategrey,white); */
-    background-image: url("https://images.pexels.com/photos/1252807/pexels-photo-1252807.jpeg?auto=compress&cs=tinysrgb&w=5472&h=3648&dpr=1");
+    background: 
+        linear-gradient(
+            rgba(0, 0, 0, 0.5), 
+            rgba(0, 0, 0, 0.5)
+        ), 
+        url("https://images.pexels.com/photos/1252807/pexels-photo-1252807.jpeg?auto=compress&cs=tinysrgb&w=5472&h=3648&dpr=1");
     background-repeat: no-repeat;
     height: 100vh;
     background-position: center;
     background-size: cover;
-
 }
 
 #banner-container p, h1, .display-1{
