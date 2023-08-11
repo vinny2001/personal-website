@@ -1,3 +1,7 @@
-.footer{
+footer{
     background-color: rgb(33,37,41);
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    position: relative;
 }

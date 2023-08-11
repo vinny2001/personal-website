@@ -1,0 +1,22 @@
+
+#biography-container{
+    background-color: grey;
+}
+
+#bio-img{
+    width: 50%;
+    height: auto;
+}
+
+#banner-bio-separator{
+    background-color: rgb(33,37,41);
+    height: 20px;
+}
+
+
+
+@media (max-width: 992px) {
+    #bio-img-div{
+        padding-bottom: 10px;
+    }
+  }

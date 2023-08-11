@@ -3,8 +3,8 @@ import "./footer.css";
 
 const Footer = () => (
 
-    <footer class="text-center text-white">
-        <p class="py-4 footer">Copyright &copy; Vincenzo D'Aria 2023, all rights reserved</p>
+    <footer class="text-center justify-content-center text-white py-3">
+        <small class="">Copyright Vincenzo D'Aria &copy; 2023, all rights reserved</small>
     </footer>
 );
 
