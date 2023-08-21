@@ -2,13 +2,13 @@ import React from "react";
 import "./biography.css";
 
 const Biography = () => (
-    <div class="container-fluid shadow" id="biography-container">
+    <div class="container-fluid" id="biography-container">
 
         {/* Separator div */}
         <div class="row" id="banner-bio-separator"></div>
 
         {/* Main bio div */}
-        <div class="row py-5">
+        <div class="row py-5 justify-content-center">
 
             {/* Biography image */}
             <div class="col-lg-6 col-sm-12 my-auto" id="bio-img-div">
@@ -16,16 +16,23 @@ const Biography = () => (
             </div>
 
             {/* Biography paragraph */}
-            <div class = "col-lg-6 col-sm-12">
-                <h3 class ="h3 text-white text-center">
+            <div class = "col-lg-5 col-sm-11 " id="bio-paragraph-div">
+                <h2 class ="h2 text-center pt-2 fw-light">
                     A Bit About Me
-                </h3>
+                </h2>
 
-                <p class="text-white text-start p-4">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Cursus eget nunc scelerisque viverra mauris in. Amet consectetur adipiscing elit ut aliquam purus sit amet. Purus in mollis nunc sed id semper risus in hendrerit. Sit amet cursus sit amet dictum. Commodo quis imperdiet massa tincidunt nunc. Viverra tellus in hac habitasse platea dictumst. Id ornare arcu odio ut. Eros donec ac odio tempor orci dapibus. Turpis egestas integer eget aliquet. Maecenas accumsan lacus vel facilisis volutpat. Consectetur a erat nam at lectus urna duis convallis convallis. Sed risus pretium quam vulputate dignissim suspendisse in est ante. Aliquam id diam maecenas ultricies mi eget mauris pharetra. In est ante in nibh mauris cursus. Amet venenatis urna cursus eget nunc. Ut faucibus pulvinar elementum integer. Pellentesque elit ullamcorper dignissim cras tincidunt lobortis. Et magnis dis parturient montes nascetur ridiculus mus. Aliquam malesuada bibendum arcu vitae.
+                <p class="text-start p-4 fw-light">
+                    I am a 4th-year computer science student at Central Connecticut State University. I am also a part of the CCSU Honors College, and a National Science Foundation
+                    CSMP Scholar. I am currently concluding my internship as a full-stack software engineer for Travelers Insurance and searching for future career prospects.
                     <br></br>
                     <br></br>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla posuere sollicitudin aliquam ultrices sagittis orci a scelerisque. Morbi non arcu risus quis varius quam quisque id. Egestas sed sed risus pretium quam vulputate. Turpis tincidunt id aliquet risus feugiat. Faucibus pulvinar elementum integer enim neque volutpat. Tristique nulla aliquet enim tortor at auctor. Lectus nulla at volutpat diam ut venenatis tellus in metus. Vitae sapien pellentesque habitant morbi tristique. Purus sit amet luctus venenatis.
+                    To say that my experience as a computer science student and an emerging professional is enriching... is truly an understatement. I am privileged to have had various inspirations
+                    and mentors so far in my journey forward, and they have all shaped me as a driven, creative individual. I have learned that I am passionate about machine learning AI,
+                    biomedical technology, and full-stack development.
+                    <br></br>
+                    <br></br>
+                    I hope to leverage my current talents and skills, all while improving upon my passions. Technology moves quickly, and I am eager to be a part of this movement and make my
+                    own impact on the world.
                 </p>
             </div>
 

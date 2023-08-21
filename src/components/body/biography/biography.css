@@ -1,11 +1,21 @@
 
 #biography-container{
-    background-color: grey;
+    /* background-color: gray; */
+    /* background: linear-gradient(rgb(33, 37, 41), lightgrey); */
 }
 
 #bio-img{
     width: 50%;
-    height: auto;
+    height: auto;  
+}
+
+
+#bio-paragraph-div p, h2.h2{
+    color: #fafafa
+}
+
+#bio-paragraph-div p{
+    font-size:large;
 }
 
 #banner-bio-separator{
@@ -17,6 +27,7 @@
 
 @media (max-width: 992px) {
     #bio-img-div{
-        padding-bottom: 10px;
+        padding-bottom: 50px;
     }
+
   }
