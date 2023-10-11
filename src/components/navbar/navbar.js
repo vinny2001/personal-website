@@ -19,7 +19,7 @@ const Navbar = () =>(
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link " href="/research">Research</a>
+                        <a class="nav-link " href="/#/research">Research</a>
                     </li>
 
                     <li class="nav-item">
