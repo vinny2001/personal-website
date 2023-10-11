@@ -11,7 +11,6 @@ function Body() {
             <Banner/>
             <div className="MainBody">
                 <Biography/>
-     
             </div>
         </div>
 

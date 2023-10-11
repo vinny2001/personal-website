@@ -1,0 +1,18 @@
+#banner-bio-separator{
+    background-color: rgb(33,37,41);
+    height: 20px;
+}
+
+#research-entry-container{
+    background: linear-gradient(rgb(33, 37, 41), grey);
+}
+
+#research-entry-container p, #research-entry-container h2, .hr{
+    color: #fafafa
+}
+
+
+#thesis_link{
+
+    text-decoration: none;
+  }

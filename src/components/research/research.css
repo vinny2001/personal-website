@@ -1,0 +1,17 @@
+
+#research-container{
+background: 
+    linear-gradient(
+        rgba(0, 0, 0, 0.7), 
+        rgba(0, 0, 0, 0.7)
+    ), 
+    url("https://images.pexels.com/photos/207662/pexels-photo-207662.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+    background-repeat: no-repeat;
+    height: 50vh;
+    background-position: center;
+    background-size: cover;
+}
+
+#research-container p, #research-container h1{
+    color: #fafafa
+}

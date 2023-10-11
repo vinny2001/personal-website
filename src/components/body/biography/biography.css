@@ -23,8 +23,6 @@
     height: 20px;
 }
 
-
-
 @media (max-width: 992px) {
     #bio-img-div{
         padding-bottom: 50px;
