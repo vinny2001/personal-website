@@ -44,5 +44,10 @@ small{
     transition-delay: 0.5s; /* Delay before transition starts */
     opacity: 1; /* Ensures elements are initially hidden */
   }
+
+  .delay-transition-hr {
+    transition-delay: 0.5s; /* Delay before transition starts */
+    opacity: 0.2; /* Ensures elements are initially hidden */
+  }
   
   

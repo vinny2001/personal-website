@@ -25,23 +25,23 @@ function Body() {
 
         setTimeout(() => {
             setIsVisible(prevState => ({ ...prevState, paragraph1: true }));
-        }, delay * .75);
+        }, delay * .25);
 
         setTimeout(() => {
             setIsVisible(prevState => ({ ...prevState, paragraph2: true }));
-        }, delay * 1.25);
+        }, delay * .5);
 
         setTimeout(() => {
             setIsVisible(prevState => ({ ...prevState, paragraph3: true }));
-        }, delay * 1.75);
+        }, delay * .75);
 
         setTimeout(() => {
             setIsVisible(prevState => ({ ...prevState, icons: true }));
-        }, delay * 2);
+        }, delay * 1);
 
         setTimeout(() => {
             setIsVisible(prevState => ({ ...prevState, copyright: true }));
-        }, delay * 2.5);
+        }, delay * 1.25);
     }, []);
 
     return (
@@ -55,21 +55,21 @@ function Body() {
 
                 <div id="bodyContent" className="bodyContent">
                     <div className="row text-start mb-5 px-2">
-                        <div className="col-lg-6 col-sm-12 mx-auto">
+                        <div className="col-lg-6 col-sm-10 mx-auto">
                             <p className={`opacity-transition ${isVisible.paragraph1 ? 'delay-transition' : ''}`}>
                                 I'm a software engineer at Travelers Insurance who specializes in developing full stack, data-driven, cloud-based applications.
                             </p>
-                            <hr />
+                            <hr className={`opacity-transition ${isVisible.paragraph1 ? 'delay-transition-hr' : ''}`}/>
                             <p className={`opacity-transition ${isVisible.paragraph2 ? 'delay-transition' : ''}`}>
-                                I recently graduated from Central Connecticut State University with my BS in Computer Science. During my time there, I gained hands-on experience with a variety of tools and technologies. 
-                                Some notable experiences included developing a full stack mobile application for a local non-profit, publishing my research thesis on the use of nano-pharmacytes for targeted, intelligent cancer remediation,
+                                I recently graduated from Central Connecticut State University with my BS in Computer Science. At CCSU, I gained hands-on experience with a variety of tools and technologies. 
+                                including developing a full stack mobile application for a local non-profit, publishing my research thesis on the use of AI-powered nano-pharmacytes for targeted cancer remediation,
                                 and learning different levels of theory, programming languages, frameworks, and development stacks.
                             </p>
-                            <hr />
+                            <hr className={`opacity-transition ${isVisible.paragraph2 ? 'delay-transition-hr' : ''}`}/>
                             <p className={`opacity-transition ${isVisible.paragraph3 ? 'delay-transition' : ''}`}>
                                 I am always excited to learn more and connect with other like-minded individuals. Let's talk about it!
                             </p>
-                            
+                            <hr className={`opacity-transition ${isVisible.paragraph3 ? 'delay-transition-hr' : ''}`}/>
                             <div className={`m-2 icon-container opacity-transition ${isVisible.icons ? 'delay-transition' : ''}`} style={{ display: 'flex', gap: '10px' }}>
                                 <a href="https://www.linkedin.com/in/vincenzodaria" target="_blank" rel="noopener noreferrer">
                                     <FontAwesomeIcon icon={faLinkedin} size="2x" color="black" />
@@ -82,8 +82,9 @@ function Body() {
                                 </a>
                             </div>
 
+                            <hr className={`copy-right opacity-transition ${isVisible.copyright ? 'delay-transition-hr' : ''}`}/>
                             <small className={`copy-right opacity-transition ${isVisible.copyright ? 'delay-transition' : ''}`}>Copyright Vincenzo D'Aria &copy; 2024, all rights reserved</small>
-                            <hr />
+                            
                         </div>
                     </div>
                 </div>
