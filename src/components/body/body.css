@@ -1,3 +1,48 @@
-.MainBody{
-    background: linear-gradient(rgb(33, 37, 41), grey);
+.header-container {
+    display: flex;
+    align-items: baseline; /* This aligns the headers on their text baselines */
 }
+
+.header-container h4, .header-container h1 {
+    margin: 0 10px 0 0; /* Add some margin to separate the headers */
+}
+
+.centered-content {
+    text-align: start;
+    width: 66.67%; /* This corresponds to col-8 in a 12-column grid */
+}
+
+p, small, #greetingHeading {
+    font-family: 'Roboto', sans-serif;
+    color: darkslategray;
+}
+
+small{
+    font-weight: 350;
+}
+
+.social-profiles {
+    display: flex;
+    gap: 10px;
+}
+.social-profiles a {
+    text-decoration: none;
+    color: inherit;
+}
+.social-profiles a i {
+    font-size: 2rem;
+}
+
+
+/* body.css */
+.opacity-transition {
+    opacity: 0;
+    transition: opacity 1s ease-in-out; /* Slower transition */
+  }
+  
+  .delay-transition {
+    transition-delay: 0.5s; /* Delay before transition starts */
+    opacity: 1; /* Ensures elements are initially hidden */
+  }
+  
+  
