@@ -12,7 +12,7 @@ code {
     monospace;
 }
 
-.App {
+.App, html {
   background-color: #fafafa;
   min-height: 100vh;
 }
