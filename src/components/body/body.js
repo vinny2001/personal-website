@@ -13,6 +13,7 @@ function Body() {
         paragraph3: false,
         icons: false,
         copyright: false
+        
     });
 
     useEffect(() => {
