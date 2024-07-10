@@ -47,7 +47,7 @@ function Body() {
     return (
         <div className="Body">
             <div className="container">
-                <div id="bodyTitle" className={`opacity-transition ${isVisible.title ? 'delay-transition' : ''}`}>
+                <div id="bodyTitle" className={`opacity-transition ${isVisible.title ? 'delay-transition' : ''} mt-5`}>
                     <div className="row justify-content-center text-center header-container mt-md-5 mt-sm-3 mb-3">
                         <h3 id="greetingHeading">Hello, I'm Vincenzo</h3>
                     </div>

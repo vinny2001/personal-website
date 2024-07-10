@@ -50,4 +50,10 @@ small{
     opacity: 0.2; /* Ensures elements are initially hidden */
   }
   
-  
+  @media (max-width: 600px) {
+    /* Your CSS styles for small screens go here */
+    p{
+        font-size: 14px;
+    }
+    
+  }
