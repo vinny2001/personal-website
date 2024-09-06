@@ -63,7 +63,7 @@ function Body() {
                                 I'm a recent graduate from Central Connecticut State University with my BS in Computer Science. My passion for tech
                                 began with Android firmware and kernel-level development. Today, I have expanded my horizons as the founder of 
                                 <span><a href="/#/liberty-streams"> Liberty Streams</a></span>, having kickstarted my career as a full-stack engineer, and having produced a
-                                <span><a> publication</a></span> on using neural network-powered nanobots in cancer remediation.
+                                <span><a href="https://cscu-ccsu-primo.hosted.exlibrisgroup.com/primo-explore/fulldisplay?docid=01CSCU_NETWORK_ALMA71210764550003451&vid=CCSU_V1&lang=en_US&context=L" target="_blank" rel="noopener noreferrer"> publication</a></span> on using neural network-powered nanobots in cancer remediation.
                             </p>
                             <hr className={`opacity-transition ${isVisible.paragraph2 ? 'delay-transition-hr' : ''}`}/>
                             <p className={`opacity-transition ${isVisible.paragraph3 ? 'delay-transition' : ''}`}>
