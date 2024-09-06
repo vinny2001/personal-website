@@ -17,6 +17,13 @@ p, small, #greetingHeading {
     color: darkslategray;
 }
 
+span a{
+    font-family: 'Roboto', sans-serif;
+    color: darkslategray;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
 small{
     font-weight: 350;
 }

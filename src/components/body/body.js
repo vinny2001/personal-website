@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import "./body.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedin, faGithub, faAws } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 function Body() {
@@ -13,7 +13,6 @@ function Body() {
         paragraph3: false,
         icons: false,
         copyright: false
-        
     });
 
     useEffect(() => {
@@ -57,13 +56,14 @@ function Body() {
                     <div className="row text-start mb-5 px-2">
                         <div className="col-lg-6 col-sm-10 mx-auto">
                             <p className={`opacity-transition ${isVisible.paragraph1 ? 'delay-transition' : ''}`}>
-                                I'm a software engineer at Travelers who specializes in developing full stack, data-driven, cloud-based applications.
+                                I'm a software engineer who specializes in developing full-stack, data-driven, cloud-based applications.
                             </p>
                             <hr className={`opacity-transition ${isVisible.paragraph1 ? 'delay-transition-hr' : ''}`}/>
                             <p className={`opacity-transition ${isVisible.paragraph2 ? 'delay-transition' : ''}`}>
-                                I recently graduated from Central Connecticut State University with my BS in Computer Science. Some notable experiences at CCSU included
-                                developing a full stack mobile application for a local non-profit, publishing my thesis on the use of AI-powered nano-pharmacytes for targeted cancer remediation,
-                                and learning computer theory, programming languages, frameworks, and development stacks.
+                                I'm a recent graduate from Central Connecticut State University with my BS in Computer Science. My passion for tech
+                                began with Android firmware and kernel-level development. Today, I have expanded my horizons as the founder of 
+                                <span><a href="/#/liberty-streams"> Liberty Streams</a></span>, having kickstarted my career as a full-stack engineer, and having produced a
+                                <span><a> publication</a></span> on using neural network-powered nanobots in cancer remediation.
                             </p>
                             <hr className={`opacity-transition ${isVisible.paragraph2 ? 'delay-transition-hr' : ''}`}/>
                             <p className={`opacity-transition ${isVisible.paragraph3 ? 'delay-transition' : ''}`}>
@@ -74,8 +74,11 @@ function Body() {
                                 <a href="https://www.linkedin.com/in/vincenzodaria" target="_blank" rel="noopener noreferrer">
                                     <FontAwesomeIcon icon={faLinkedin} size="2x" color="black" />
                                 </a>
-                                <a href="https://github.com/vinny2001" target="_blank" rel="noopener noreferrer" className="mx-3">
+                                <a href="https://github.com/vinny2001" target="_blank" rel="noopener noreferrer" className="ms-3">
                                     <FontAwesomeIcon icon={faGithub} color="black" size="2x" />                 
+                                </a>
+                                <a href="https://www.credly.com/badges/f5faaf3e-85e1-4be6-aa73-8483443e95d8/linked_in_profile" target="_blank" rel="noopener noreferrer" className="mx-3">
+                                    <FontAwesomeIcon icon={faAws} color="black" size="2x" />                 
                                 </a>
                                 <a href="mailto:vincenzo.daria01@gmail.com" target="_blank" rel="noopener noreferrer">
                                     <FontAwesomeIcon icon={faEnvelope} color="black" size="2x" />
