@@ -86,7 +86,7 @@ function Body() {
                             </div>
 
                             <hr className={`copy-right opacity-transition ${isVisible.copyright ? 'delay-transition-hr' : ''}`}/>
-                            <small className={`copy-right opacity-transition ${isVisible.copyright ? 'delay-transition' : ''}`}>Copyright Vincenzo D'Aria &copy; 2024, all rights reserved</small>
+                            <small className={`copy-right opacity-transition ${isVisible.copyright ? 'delay-transition' : ''}`}>Copyright Vincenzo D'Aria &copy; {(new Date().getFullYear())}, all rights reserved</small>
                             
                         </div>
                     </div>
