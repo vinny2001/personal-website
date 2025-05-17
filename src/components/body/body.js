@@ -60,8 +60,8 @@ function Body() {
                             </p>
                             <hr className={`opacity-transition ${isVisible.paragraph1 ? 'delay-transition-hr' : ''}`}/>
                             <p className={`opacity-transition ${isVisible.paragraph2 ? 'delay-transition' : ''}`}>
-                                About 10 years ago, my passion for tech began with Android firmware and kernel-level development. 
-                                Today, I have expanded my horizons having graduated from Central Connecticut state universtity with my B.S. in computer science,
+                                About 10 years ago, my passion for tech began with enthusiast-level Android firmware and kernel development. 
+                                Today, I have expanded my horizons having graduated from Central Connecticut State Universtity with my B.S. in computer science,
                                 having kickstarted my career as a full-stack software engineer, and having produced a
                                 <span><a href="https://cscu-ccsu-primo.hosted.exlibrisgroup.com/primo-explore/fulldisplay?docid=01CSCU_NETWORK_ALMA71210764550003451&vid=CCSU_V1&lang=en_US&context=L" target="_blank" rel="noopener noreferrer"> publication </a></span>  
                                 about using neural network-powered nanobots in cancer remediation.
