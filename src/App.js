@@ -15,7 +15,6 @@ function App() {
         <HashRouter basename="/">
           <Routes>
               <Route path="/" element={<Body />}/>
-              <Route path="/liberty-streams" element={<LibertyStreams/>}/>
           </Routes>
         </HashRouter>
            
