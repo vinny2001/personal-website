@@ -1,29 +1,26 @@
 import React from "react";
-import {ImHome} from "react-icons/im"
 
 const Navbar = () =>(
 
-    <nav className="navbar navbar-expand-md">
+    <nav className="navbar">
         <div className="container-fluid">
-            <a className="navbar-brand" href="/">
-                <ImHome size={25} color="darkslategray"></ImHome>
-            </a>
-            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="navbarNav">
-                <ul className="navbar-nav align-items-start px-2 pt-3">
 
-                    <li className="nav-item">
-                        <a className="nav-link" href="/">Home</a>
-                    </li>
+            <ul className="navbar-nav flex-row px-2 pt-3">
 
-                    <li className="nav-item">
-                        <a className="nav-link disabled" href="/#/portfolio">Portfolio</a>
-                    </li>
-                    
-                </ul>
-            </div>
+                <li className="nav-item mx-lg-4 mx-2">
+                    <a className="nav-link" href="/">Home</a>
+                </li>  
+
+                <li className="nav-item mx-lg-4 mx-2">
+                    <a className="nav-link disabled" href="/#/">Skills</a>
+                </li>
+
+                <li className="nav-item mx-lg-4 mx-2">
+                    <a className="nav-link disabled" href="/#/portfolio">Projects</a>
+                </li>
+
+            </ul>
+
         </div>
     </nav>
 );

@@ -59,8 +59,5 @@ small{
   
   @media (max-width: 600px) {
     /* Your CSS styles for small screens go here */
-    p{
-        font-size: 14px;
-    }
     
   }
