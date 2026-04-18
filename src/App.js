@@ -1,24 +1,25 @@
 import './App.css';
-import Body from './components/body/body';
-import Navbar from './components/navbar/navbar';
-
-import LibertyStreams from './components/liberty streams/libertyStreams';
 import { Routes, Route, HashRouter } from 'react-router-dom';
-
+import { HelmetProvider } from 'react-helmet-async';
+import Navbar from './components/navbar/navbar';
+import Home from './pages/Home';
+import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
 
 function App() {
   return (
-  
-      <div className="App">
-        <Navbar />
-
-        <HashRouter basename="/">
+    <HelmetProvider>
+      <HashRouter basename="/">
+        <div className="App">
+          <Navbar />
           <Routes>
-              <Route path="/" element={<Body />}/>
+            <Route path="/" element={<Home />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
           </Routes>
-        </HashRouter>
-           
-      </div>
+        </div>
+      </HashRouter>
+    </HelmetProvider>
   );
 }
 
