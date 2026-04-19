@@ -8,6 +8,17 @@ const NeuralNetworksCancerRemediation = () => (
       involved, and the real-world constraints that make this a hard problem.
     </p>
 
+    <figure className="post-figure">
+      <img
+        src={`${process.env.PUBLIC_URL}/images/vinny_poster_presentation.jpg`}
+        alt="Vincenzo presenting his thesis poster on neural network-guided nanobots at CCSU"
+        className="post-figure__img"
+      />
+      <figcaption className="post-figure__caption">
+        Thesis poster presentation at CCSU's 2023 University Research and Creative Achievement Day (URCAD) conference.
+      </figcaption>
+    </figure>
+
     <h2>The Problem with Current Cancer Treatment</h2>
     <p>
       Conventional cancer treatments — chemotherapy, radiation — are powerful but imprecise.

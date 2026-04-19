@@ -89,6 +89,30 @@
   color: var(--text-muted);
 }
 
+/* Post figures */
+.post-figure {
+  margin: 2rem 0 2.5rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+}
+
+.post-figure__img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  max-height: 480px;
+}
+
+.post-figure__caption {
+  padding: 0.6rem 1rem;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  background: var(--bg-secondary);
+  text-align: center;
+}
+
 /* Post prose styling */
 .blog-post-body {
   color: var(--text-secondary);
