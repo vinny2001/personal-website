@@ -16,11 +16,11 @@ const skillGroups = [
   },
   {
     category: 'Data & Databases',
-    skills: ['PostgreSQL', 'SQL', 'DynamoDB', 'Jira', 'Workday'],
+    skills: ['PostgreSQL', 'SQL', 'SQL Server', 'DynamoDB'],
   },
   {
     category: 'Tools & Practices',
-    skills: ['Git', 'CI/CD', 'Agile', 'Bash', 'Linux'],
+    skills: ['Git', 'CI/CD', 'Agile', 'Jira', 'Bash', 'Linux'],
   },
 ];
 

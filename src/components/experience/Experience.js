@@ -41,6 +41,7 @@ const Experience = () => {
                       {job.startDate} &ndash; {job.endDate}
                     </span>
                   </div>
+                  {job.intro && <p className="timeline-intro">{job.intro}</p>}
                   <ul className="timeline-bullets">
                     {job.description.map((bullet, i) => (
                       <li key={i}>{bullet}</li>

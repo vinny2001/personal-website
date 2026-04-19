@@ -29,54 +29,72 @@ const NeuralNetworksCancerRemediation = () => (
       neural network:
     </p>
     <ol>
-      <li><strong>Body traversal</strong> — RSHNs guided by Graph Neural Networks (GNNs)</li>
-      <li><strong>Cancer cell detection</strong> — Convolutional Neural Networks (CNNs)</li>
-      <li><strong>Targeted treatment</strong> — Pharmacyte drug delivery upon confirmed detection</li>
+      <li><strong>Body traversal</strong> — nanorobots navigating via Relation Structure-Aware Heterogeneous Graph Neural Networks (RSHNs)</li>
+      <li><strong>Cancer cell detection</strong> — a dual-channel Convolutional Neural Network (CNN) fed by nano-optic cameras</li>
+      <li><strong>Targeted treatment</strong> — pharmacyte drug delivery upon confirmed detection</li>
     </ol>
 
-    <h2>Layer 1 — Navigation: RSHNs and Graph Neural Networks</h2>
+    <h2>Layer 1 — Navigation: Heterogeneous Graph Neural Networks</h2>
     <p>
-      The nanorobots in this framework are modeled as <strong>Reconfigurable Swarm Hybrid
-      Nanorobots (RSHNs)</strong> — small, configurable agents that operate collectively rather
-      than individually. No single nanorobot is capable of complex reasoning; the swarm is.
+      The human body is a fundamentally heterogeneous environment — veins, arteries, lymphatic
+      vessels, and tissue boundaries are structurally distinct, and a nanorobot navigating
+      through them must reason about relationships that differ in kind, not just degree. The
+      thesis models this as a <strong>heterogeneous graph</strong>, where nodes represent
+      anatomical locations and edges encode the different types of relationships between them.
     </p>
     <p>
-      Navigation through the body's vascular and lymphatic systems is modeled as a graph
-      traversal problem. Body cavities, vessels, and tissue boundaries are nodes and edges in
-      a biological graph. A <strong>Graph Neural Network (GNN)</strong> learns the structural
-      properties of this graph — which paths are viable, where congestion occurs, and how to
-      route swarms toward target tissue regions. This avoids the need for hardcoded anatomical
-      maps by letting the model generalize from the graph's topology at inference time.
+      To extract meaningful traversal decisions from this graph, the framework uses{' '}
+      <strong>Relation Structure-Aware Heterogeneous Graph Neural Networks (RSHNs)</strong> —
+      a GNN architecture specifically designed for heterogeneous graphs. Unlike standard GNNs,
+      RSHNs are relation-structure aware: they capture multi-relational associations across
+      node types, allowing the model to reason about biologically distinct path types rather
+      than collapsing them into a uniform edge representation.
+    </p>
+    <p>
+      The thesis evaluates three nanorobot traversal strategies against each other:
+    </p>
+    <ul>
+      <li><strong>Wiggle traversal</strong> — oscillating lateral movement; slowest and least efficient</li>
+      <li><strong>Saltatory traversal</strong> — jump-based movement through discrete waypoints; middle performance</li>
+      <li><strong>Wandering traversal</strong> — adaptive pathfinding guided by the RSHN model; fastest and most accurate</li>
+    </ul>
+    <p>
+      Wandering traversal, powered by the RSHN, consistently outperformed the alternatives by
+      exploiting the full relational structure of the body graph rather than relying on
+      fixed movement patterns.
     </p>
 
-    <h2>Layer 2 — Detection: Convolutional Neural Networks</h2>
+    <h2>Layer 2 — Detection: Dual-Channel CNNs and Nano-Optic Cameras</h2>
     <p>
-      Once RSHNs reach target tissue, the detection problem becomes one of image classification.
-      Nanorobots equipped with biosensors capture structural and chemical data at the cellular
-      level. A <strong>Convolutional Neural Network (CNN)</strong> processes this data to
-      distinguish malignant cells from healthy ones based on surface protein markers,
-      morphological features, and the local cellular environment.
+      Once nanorobots reach target tissue, cancer detection becomes an imaging problem. Each
+      nanorobot is equipped with a <strong>nano-optic (meta-optic) camera</strong> — a
+      miniaturized imaging device capable of capturing cellular-scale data from inside the body.
+      The feed from this camera is processed by a <strong>dual-channel CNN</strong>.
     </p>
     <p>
-      CNNs are well-suited here because cancer cell identification is fundamentally a pattern
-      recognition task — the same spatial feature extraction that makes CNNs effective for
-      image classification translates to identifying the structural signatures of malignancy.
-      The model must be lightweight enough to run on or near the nanorobot swarm, which is one
-      of the more demanding engineering constraints in the whole system.
+      The dual-channel architecture uses two parallel input streams — enabling the model to
+      process complementary feature representations simultaneously. The network consists of
+      four convolutional layers and three subsampling (pooling) layers, and was benchmarked at{' '}
+      <strong>95.85% classification accuracy</strong> on cancer cell detection. CNNs are
+      well-suited here because malignancy identification is fundamentally a spatial pattern
+      recognition task: the same feature extraction mechanisms that power image classification
+      translate directly to identifying the morphological signatures of cancerous cells.
     </p>
 
     <h2>Layer 3 — Treatment: Pharmacytes</h2>
     <p>
-      Upon confirmed detection, the relevant RSHNs act as <strong>pharmacytes</strong> —
-      drug-carrying nanorobots that release a targeted therapeutic payload directly at the
-      malignant cell. Because treatment is triggered only after CNN-confirmed identification,
-      healthy tissue is not exposed to the therapeutic agent. This is the specificity that
-      conventional treatments can't achieve.
+      Upon CNN-confirmed detection, the nanorobots act as <strong>pharmacytes</strong> —
+      purpose-built drug-delivery nanorobots measuring <strong>1–2 micrometers in diameter</strong>,
+      with onboard drug reservoirs of 1–3μm. Each pharmacyte is equipped with capacitors for
+      power storage, molecular motors for propulsion, and micro-cameras for local navigation.
+      Treatment is administered by releasing a targeted therapeutic payload directly at the
+      malignant cell.
     </p>
     <p>
-      The pharmacyte model also allows for adaptive dosing: swarm size, payload concentration,
-      and release timing can be tuned dynamically based on the density of detected cancer cells,
-      rather than applying a fixed systemic dose.
+      Because treatment is triggered only after CNN-confirmed identification, healthy tissue is
+      not exposed to the therapeutic agent. The pharmacyte model also allows for adaptive
+      dosing: swarm size, payload concentration, and release timing can be tuned dynamically
+      based on detected cancer cell density, rather than applying a fixed systemic dose.
     </p>
 
     <h2>Legal and Ethical Considerations</h2>
@@ -86,32 +104,39 @@ const NeuralNetworksCancerRemediation = () => (
     </p>
     <ul>
       <li>
-        <strong>HIPAA compliance</strong> — The biosensor data collected by RSHNs is protected
-        medical information. Any real implementation must enforce strict data governance: what
-        is transmitted, to whom, and how it is stored.
+        <strong>HIPAA Title II</strong> — Biosensor and imaging data collected inside a
+        patient is protected health information. Any real implementation must enforce strict
+        data governance over what is transmitted, to whom, and how it is stored and audited.
       </li>
       <li>
-        <strong>ACM ethics guidelines</strong> — Autonomous medical AI systems must be
-        explainable and contestable. A patient or physician should be able to understand why the
-        system identified a particular cell as malignant and challenge that determination before
-        treatment is administered.
+        <strong>ACM Code of Ethics §1.2</strong> — Autonomous medical AI systems must avoid
+        harm. The nanorobot framework must be explainable and contestable: a physician should
+        be able to audit why the CNN flagged a cell as malignant before the pharmacyte
+        administers treatment.
       </li>
       <li>
-        <strong>Informed consent</strong> — Deploying nanorobots inside a patient requires
-        explicit, informed consent that covers the scope of autonomous decision-making the
-        system performs. Patients should know when and how the AI acts without direct physician
-        input.
+        <strong>Asimov's First Law applied to nanorobotics</strong> — A nanorobot must not
+        harm a human or, through inaction, allow harm to occur. The thesis uses this as a
+        framing principle for designing safe failure modes — when confidence is below threshold,
+        the system should defer to a physician rather than act autonomously.
+      </li>
+      <li>
+        <strong>Informed consent and incidental findings</strong> — Deploying nanorobots inside
+        a patient requires explicit consent covering the scope of autonomous decision-making.
+        A harder problem is incidental findings: if the system detects something outside its
+        treatment mandate, what does it do? The thesis flags this as an open ethical question
+        requiring clear policy before deployment.
       </li>
     </ul>
 
     <h2>Where This Stands</h2>
     <p>
       This is a conceptual and computational framework — not a clinical implementation. The
-      hardware side (actually manufacturing and deploying bio-nanorobots at therapeutic scale)
-      remains a major open problem in materials science and bioengineering. But the value of
-      this kind of systems-level thinking is that it surfaces the hard constraints early:
-      model size, latency, explainability, and consent aren't afterthoughts you can bolt on
-      later — they have to be designed in from the start.
+      hardware side (manufacturing and deploying pharmacyte-scale nanorobots at therapeutic
+      scale) remains a major open problem in materials science and bioengineering. But the
+      value of this kind of systems-level thinking is that it surfaces the hard constraints
+      early: model size, latency, explainability, and consent aren't afterthoughts you can
+      bolt on later — they have to be designed in from the start.
     </p>
     <p>
       The intersection of AI and nano-scale medicine is one of the areas I find most

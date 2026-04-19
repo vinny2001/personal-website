@@ -6,15 +6,15 @@ const homeLinks = [
   { label: 'About',      href: '#about' },
   { label: 'Skills',     href: '#skills' },
   { label: 'Experience', href: '#experience' },
-  { label: 'Contact',    href: '#contact' },
+  { label: "What's Next", href: '#goals' },
 ];
 
 const Navbar = () => {
-  const [scrolled, setScrolled]   = useState(false);
-  const [menuOpen, setMenuOpen]   = useState(false);
-  const location                  = useLocation();
-  const isHome                    = location.pathname === '/';
-  const menuRef                   = useRef(null);
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const location                = useLocation();
+  const isHome                  = location.pathname === '/';
+  const menuRef                 = useRef(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -22,14 +22,10 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  // Close menu on route change
   useEffect(() => { setMenuOpen(false); }, [location]);
 
-  // Close on outside click
   const handleOutside = useCallback((e) => {
-    if (menuRef.current && !menuRef.current.contains(e.target)) {
-      setMenuOpen(false);
-    }
+    if (menuRef.current && !menuRef.current.contains(e.target)) setMenuOpen(false);
   }, []);
 
   useEffect(() => {
@@ -49,9 +45,21 @@ const Navbar = () => {
   return (
     <header className={`pill-nav${scrolled ? ' pill-nav--scrolled' : ''}`} ref={menuRef}>
       <div className="pill-nav__pill">
-        {/* Brand */}
-        <Link to="/" className="pill-nav__brand" onClick={() => setMenuOpen(false)}>
-          VD
+        {/* Brand logo */}
+        <Link
+          to="/"
+          className="pill-nav__brand"
+          aria-label="Home"
+          onClick={() => {
+            setMenuOpen(false);
+            document.getElementById('home')?.scrollIntoView({ behavior: 'smooth' });
+          }}
+        >
+          <img
+            src={`${process.env.PUBLIC_URL}/logo192.png`}
+            alt="VD logo"
+            className="pill-nav__logo"
+          />
         </Link>
 
         {/* Desktop links */}

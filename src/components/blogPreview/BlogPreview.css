@@ -1,10 +1,17 @@
 .blog-preview-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.blog-preview-header .section-divider {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.blog-preview-footer {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 0.5rem;
-  flex-wrap: wrap;
-  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 1.5rem;
 }
 
 .view-all-link {
@@ -13,8 +20,6 @@
   color: var(--accent);
   transition: opacity 0.15s ease;
   white-space: nowrap;
-  align-self: center;
-  margin-bottom: 0.5rem;
 }
 
 .view-all-link:hover {
@@ -46,6 +51,7 @@
   transition: box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
   text-decoration: none;
   color: inherit;
+  text-align: left;
 }
 
 .blog-card:hover {

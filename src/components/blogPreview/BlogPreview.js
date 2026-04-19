@@ -28,12 +28,9 @@ const BlogPreview = () => {
       <div className="container">
         <div ref={ref} className="fade-in">
           <div className="blog-preview-header">
-            <div>
-              <h2 className="section-title">Writing</h2>
-              <hr className="section-divider" />
-              <p className="section-subtitle">Thoughts on engineering, cloud, and research</p>
-            </div>
-            <Link to="/blog" className="view-all-link">View all posts &rarr;</Link>
+            <h2 className="section-title">Writing</h2>
+            <hr className="section-divider" />
+            <p className="section-subtitle">Thoughts on engineering, tech, and more.</p>
           </div>
           <div className="blog-preview-grid">
             {latestPosts.map((post, idx) => (
@@ -55,6 +52,9 @@ const BlogPreview = () => {
                 </div>
               </Link>
             ))}
+          </div>
+          <div className="blog-preview-footer">
+            <Link to="/blog" className="view-all-link">View all posts &rarr;</Link>
           </div>
         </div>
       </div>

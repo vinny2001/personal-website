@@ -10,8 +10,8 @@ const experience = [
     location: 'Hartford, CT',
     startDate: 'June 2025',
     endDate: 'Present',
+    intro: 'Full-stack engineer in the Corporate Technology — Finance and Investments Value Stream, building an AWS cloud-based internal web app for resource costing and forecasting across 12 lines of business.',
     description: [
-      'Full-stack engineer in the Corporate Technology — Finance and Investments Value Stream, building an AWS cloud-based internal web app for resource costing and forecasting across 12 lines of business.',
       'Frontend (Angular): data-driven UI components powering forecasting and costing insights for 30,000+ enterprise resources.',
       'Middle-end (TypeScript, Node.js, AWS): in-house REST APIs and API Gateway integrations for secure, efficient data transactions.',
       'Backend (PostgreSQL, AWS): schema design and data querying supporting the core forecasting engine.',

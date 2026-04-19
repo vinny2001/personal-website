@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import { faLinkedin, faGithub, faAws } from '@fortawesome/free-brands-svg-icons';
 import './Hero.css';
 
@@ -16,7 +16,7 @@ const PAUSE_AFTER  = 1800;
 const socials = [
   { icon: faLinkedin, href: 'https://www.linkedin.com/in/vincenzodaria', label: 'LinkedIn' },
   { icon: faGithub,   href: 'https://github.com/vinny2001',              label: 'GitHub' },
-  { icon: faAws,      href: 'https://www.credly.com/users/vincenzo-daria', label: 'AWS Credentials' },
+  { icon: faAws,      href: 'https://www.credly.com/badges/f5faaf3e-85e1-4be6-aa73-8483443e95d8/linked_in?t=sh7luz', label: 'AWS Credentials' },
   { icon: faEnvelope, href: 'mailto:vincenzo.daria01@gmail.com',           label: 'Email' },
 ];
 
@@ -26,6 +26,7 @@ const Hero = () => {
   const [deleting, setDeleting]   = useState(false);
   const [phraseIdx, setPhraseIdx] = useState(0);
   const [paused, setPaused]       = useState(false);
+  const [scrolledAway, setScrolledAway] = useState(false);
 
   // Fade-in on mount
   useEffect(() => {
@@ -33,6 +34,14 @@ const Hero = () => {
     if (!el) return;
     const t = setTimeout(() => el.classList.add('visible'), 80);
     return () => clearTimeout(t);
+  }, []);
+
+  // Hide chevron once user scrolls more than 20% of the viewport height
+  useEffect(() => {
+    const handleScroll = () =>
+      setScrolledAway(window.scrollY > window.innerHeight * 0.2);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Typewriter loop
@@ -95,11 +104,10 @@ const Hero = () => {
               </a>
             ))}
           </div>
-          <div className="hero-cta">
-            <a href="#about" className="btn-primary">Learn more</a>
-            <a href="#contact" className="btn-secondary">Get in touch</a>
-          </div>
         </div>
+      </div>
+      <div className={`scroll-indicator${scrolledAway ? ' hidden' : ''}`} aria-hidden="true">
+        <FontAwesomeIcon icon={faChevronDown} />
       </div>
     </section>
   );
