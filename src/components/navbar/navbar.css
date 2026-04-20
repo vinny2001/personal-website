@@ -1,6 +1,205 @@
-button.navbar-toggler{
-    color: white;
+/* ── Pill Navbar wrapper ─────────────────────────────────────────── */
+.pill-nav {
+  position: fixed;
+  top: 1.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  max-width: calc(100vw - 1.5rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-a.nav-link p{
-    color: darkslategray;
+
+/* ── The pill ────────────────────────────────────────────────────── */
+.pill-nav__pill {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.45rem 0.75rem;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+  white-space: nowrap;
+}
+
+@media (prefers-color-scheme: dark) {
+  .pill-nav__pill {
+    background: rgba(13, 17, 23, 0.80);
+    border-color: rgba(255, 255, 255, 0.10);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+  }
+}
+
+.pill-nav--scrolled .pill-nav__pill {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  border-color: rgba(0, 0, 0, 0.14);
+}
+
+@media (prefers-color-scheme: dark) {
+  .pill-nav--scrolled .pill-nav__pill {
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.50);
+    border-color: rgba(255, 255, 255, 0.16);
+  }
+}
+
+/* ── Brand / Logo ────────────────────────────────────────────────── */
+.pill-nav__brand {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.15rem 0.4rem;
+  border-radius: 100px;
+  margin-right: 0.25rem;
+  transition: background-color 0.15s ease;
+}
+
+.pill-nav__brand:hover {
+  background-color: var(--accent-subtle);
+}
+
+.pill-nav__logo {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  display: block;
+}
+
+/* Separator dot between brand and links */
+.pill-nav__brand::after {
+  content: '';
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  background: var(--border);
+  border-radius: 50%;
+  margin-left: 0.75rem;
+  vertical-align: middle;
+}
+
+/* ── Desktop nav links ───────────────────────────────────────────── */
+.pill-nav__links {
+  display: flex;
+  align-items: center;
+  gap: 0.1rem;
+}
+
+.pill-nav__link {
+  display: inline-block;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-secondary) !important;
+  border-radius: 100px;
+  transition: color 0.15s ease, background-color 0.15s ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.pill-nav__link:hover,
+.pill-nav__link--active {
+  color: var(--accent) !important;
+  background-color: var(--accent-subtle);
+}
+
+/* ── Hamburger (hidden on desktop) ──────────────────────────────── */
+.pill-nav__toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0.5rem 0.55rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 100px;
+  margin-left: 0.25rem;
+  transition: background-color 0.15s ease;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+}
+
+.pill-nav__toggle:hover {
+  background-color: var(--accent-subtle);
+}
+
+.pill-nav__toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--text-primary);
+  border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  transform-origin: center;
+}
+
+.pill-nav__toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.pill-nav__toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.pill-nav__toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── Mobile dropdown ─────────────────────────────────────────────── */
+.pill-nav__dropdown {
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  margin-top: 0.5rem;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
+  border-radius: 16px;
+  padding: 0.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  opacity: 0;
+  transform: translateY(-8px) scale(0.97);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  .pill-nav__dropdown {
+    background: rgba(22, 27, 34, 0.95);
+    border-color: rgba(255, 255, 255, 0.10);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.pill-nav__dropdown.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.pill-nav__dropdown-link {
+  display: block;
+  padding: 0.85rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-secondary) !important;
+  border-radius: 10px;
+  transition: color 0.15s ease, background-color 0.15s ease;
+  text-decoration: none;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+.pill-nav__dropdown-link:hover,
+.pill-nav__dropdown-link.pill-nav__link--active {
+  color: var(--accent) !important;
+  background-color: var(--accent-subtle);
+}
+
+/* ── Responsive breakpoints ──────────────────────────────────────── */
+@media (max-width: 640px) {
+  .pill-nav__links  { display: none; }
+  .pill-nav__toggle { display: flex; }
+}
+
+@media (min-width: 641px) {
+  .pill-nav__dropdown { display: none; }
 }
