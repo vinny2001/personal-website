@@ -9,11 +9,13 @@
  * Everything else (the /blog list, category grouping, the homepage preview,
  * per-post routes, goal-card links) derives from here.
  */
+import awsSummitNyc2026, { meta as awsSummitNyc2026Meta } from './aws-summit-nyc-2026';
 import neuralNetworksCancerRemediation, {
   meta as neuralNetworksCancerRemediationMeta,
 } from './neural-networks-cancer-remediation';
 
 const modules = [
+  { meta: awsSummitNyc2026Meta, Component: awsSummitNyc2026 },
   { meta: neuralNetworksCancerRemediationMeta, Component: neuralNetworksCancerRemediation },
 ];
 

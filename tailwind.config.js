@@ -18,6 +18,7 @@ module.exports = {
         'ink-muted': 'var(--text-muted)',
         accent: 'var(--accent)',
         'accent-hover': 'var(--accent-hover)',
+        'accent-subtle': 'var(--accent-subtle)',
         hairline: 'var(--border)',
       },
     },

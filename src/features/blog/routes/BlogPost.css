@@ -26,6 +26,7 @@
 .blog-post-wrapper {
   max-width: 720px;
   margin: 0 auto;
+  text-align: left;
 }
 
 .blog-post-not-found {
@@ -41,19 +42,6 @@
 .blog-post-not-found p {
   color: var(--text-secondary);
   margin-bottom: 2rem;
-}
-
-.back-link {
-  display: inline-block;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--text-muted);
-  margin-bottom: 2rem;
-  transition: color 0.15s ease;
-}
-
-.back-link:hover {
-  color: var(--accent);
 }
 
 .blog-post-header {
@@ -112,6 +100,30 @@
   display: block;
   object-fit: cover;
   max-height: 480px;
+}
+
+/* Portrait / tall photos: show the whole frame, shrink the frame to hug the
+   image (no letterbox bands), and center it in the column. */
+.post-figure--portrait {
+  width: fit-content;
+  max-width: 100%;
+  margin: 1.5rem auto 2rem;
+  background: var(--bg-secondary);
+}
+
+.post-figure--portrait .post-figure__img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: 600px;
+  object-fit: contain;
+}
+
+/* Caption tracks the image width without widening the figure. */
+.post-figure--portrait .post-figure__caption {
+  box-sizing: border-box;
+  width: 0;
+  min-width: 100%;
 }
 
 .post-figure__caption {

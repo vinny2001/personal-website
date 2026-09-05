@@ -28,19 +28,6 @@
   text-align: left;
 }
 
-.back-link {
-  display: inline-block;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--text-muted);
-  margin-bottom: 1.5rem;
-  transition: color 0.15s ease;
-}
-
-.back-link:hover {
-  color: var(--accent);
-}
-
 .blog-page-title {
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 700;

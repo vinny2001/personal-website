@@ -1,11 +1,10 @@
 import { useEffect } from 'react';
 
-import { Link } from 'react-router-dom';
-
 import { Helmet } from 'react-helmet-async';
 
 import useFadeIn from 'hooks/useFadeIn';
 
+import BackLink from '../components/BackLink';
 import PostList from '../components/PostList';
 import groupPostsByCategory from '../lib/groupPostsByCategory';
 import { posts } from '../posts';
@@ -34,9 +33,7 @@ const BlogListPage = () => {
         <div className="container">
           <div ref={ref} className="fade-in">
             <div className="blog-page-header">
-              <Link to="/" className="back-link">
-                &larr; Back
-              </Link>
+              <BackLink to="/">Back home</BackLink>
               <h1 className="blog-page-title">Writing</h1>
               <p className="blog-page-subtitle">
                 Thoughts on cloud architecture, full-stack engineering, and the occasional deep dive

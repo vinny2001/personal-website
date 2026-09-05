@@ -17,6 +17,6 @@ export const categories = [
   },
   {
     name: 'Free Thought',
-    description: 'Essays and half-formed ideas that are not tied to a goal.',
+    description: 'My own explications, reflections, and musings.',
   },
 ];

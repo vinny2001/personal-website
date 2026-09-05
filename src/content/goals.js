@@ -27,6 +27,7 @@ export const goals = [
     category: 'Career',
     text: 'Attend the AWS Summit in New York City',
     status: 'done',
+    link: 'aws-summit-nyc-2026',
   },
   {
     icon: '🎸',

@@ -9,4 +9,4 @@
  *
  * The /blog page is unaffected by this list — it always shows every post.
  */
-export const featuredSlugs = ['neural-networks-cancer-remediation'];
+export const featuredSlugs = ['aws-summit-nyc-2026', 'neural-networks-cancer-remediation'];

@@ -1,12 +1,13 @@
 import { useEffect } from 'react';
 
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import { Helmet } from 'react-helmet-async';
 
 import Tag from 'components/ui/Tag';
 import useFadeIn from 'hooks/useFadeIn';
 
+import BackLink from '../components/BackLink';
 import formatDate from '../lib/formatDate';
 import { postMetaBySlug, postsBySlug } from '../posts';
 
@@ -30,9 +31,7 @@ const BlogPostPage = () => {
           <div className="blog-post-not-found">
             <h1>Post not found</h1>
             <p>The post you're looking for doesn't exist.</p>
-            <Link to="/blog" className="back-link">
-              &larr; Back to Writing
-            </Link>
+            <BackLink to="/blog">Back to Writing</BackLink>
           </div>
         </div>
       </div>
@@ -52,9 +51,7 @@ const BlogPostPage = () => {
       <div className="blog-post-page">
         <div className="container">
           <div ref={ref} className="fade-in blog-post-wrapper">
-            <Link to="/blog" className="back-link">
-              &larr; Back to Writing
-            </Link>
+            <BackLink to="/blog">Back to Writing</BackLink>
 
             <header className="blog-post-header">
               {meta.category && <p className="blog-post-kicker">{meta.category}</p>}
