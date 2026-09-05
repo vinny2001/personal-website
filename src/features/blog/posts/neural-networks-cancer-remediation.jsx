@@ -25,7 +25,7 @@ const NeuralNetworksCancerRemediation = () => (
 
     <figure className="post-figure">
       <img
-        src={`${process.env.PUBLIC_URL}/images/vinny_poster_presentation.jpg`}
+        src="/images/vinny_poster_presentation.jpg"
         alt="Vincenzo presenting his thesis poster on neural network-guided nanobots at CCSU"
         className="post-figure__img"
       />

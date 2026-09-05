@@ -1,6 +1,6 @@
 import groupPostsByCategory from './groupPostsByCategory';
 
-jest.mock('../../../content/blog/categories', () => ({
+vi.mock('../../../content/blog/categories', () => ({
   categories: [
     { name: 'Research', description: 'deep dives' },
     { name: 'Free Thought', description: 'essays' },

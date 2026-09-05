@@ -1,6 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* ── Theme Variables ───────────────────────────────────────────── */
 :root {
   --bg-primary: #ffffff;
+  /* Space-separated RGB channels so Tailwind's `/opacity` modifier works on `bg-base`. */
+  --bg-primary-rgb: 255 255 255;
   --bg-secondary: #f5f7fa;
   --bg-card: #ffffff;
   --text-primary: #1a1a2e;
@@ -20,6 +26,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --bg-primary: #0d1117;
+    --bg-primary-rgb: 13 17 23;
     --bg-secondary: #161b22;
     --bg-card: #1c2128;
     --text-primary: #e6edf3;

@@ -15,12 +15,12 @@ const resolveFeatured = (featuredSlugs, metaBySlug, allPosts) => {
   featuredSlugs.forEach((slug) => {
     const meta = metaBySlug[slug];
     if (meta) resolved.push(meta);
-    else if (process.env.NODE_ENV !== 'production') {
+    else if (import.meta.env.DEV) {
       console.warn(`[blog] featuredSlugs: no post found for "${slug}"`);
     }
   });
 
-  if (process.env.NODE_ENV !== 'production' && featuredSlugs.length > MAX_FEATURED) {
+  if (import.meta.env.DEV && featuredSlugs.length > MAX_FEATURED) {
     console.warn(
       `[blog] featuredSlugs has ${featuredSlugs.length} entries; only ${MAX_FEATURED} are shown`
     );

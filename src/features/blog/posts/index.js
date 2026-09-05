@@ -17,7 +17,7 @@ const modules = [
   { meta: neuralNetworksCancerRemediationMeta, Component: neuralNetworksCancerRemediation },
 ];
 
-if (process.env.NODE_ENV !== 'production') {
+if (import.meta.env.DEV) {
   const seen = new Set();
   modules.forEach(({ meta }) => {
     if (!meta || !meta.slug) {
