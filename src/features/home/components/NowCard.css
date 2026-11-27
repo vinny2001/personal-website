@@ -1,0 +1,19 @@
+/* Now list layout, driven by the card's own width (container query) so it works
+   in a narrow column or full-width: label stacked over its line when narrow,
+   a label column beside it once there's room. */
+.now-card {
+  container-type: inline-size;
+}
+
+.now-card__entry {
+  display: grid;
+  row-gap: 0.4rem;
+}
+
+@container (min-width: 30rem) {
+  .now-card__entry {
+    grid-template-columns: 8.5rem minmax(0, 1fr);
+    column-gap: 1.5rem;
+    align-items: baseline;
+  }
+}

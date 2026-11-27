@@ -21,6 +21,7 @@ export default defineConfig({
       content: srcDir('content'),
       features: srcDir('features'),
       hooks: srcDir('hooks'),
+      utils: srcDir('utils'),
     },
   },
   server: {

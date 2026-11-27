@@ -1,6 +1,22 @@
 /**
- * Copy for the About section. Edit the prose here.
+ * Copy for the /about page. Edit the prose here.
  */
+
+/** Masthead, <head> description, and section headings. */
+export const aboutPage = {
+  title: 'Curious by default.',
+  lede: 'Full-stack engineer at Travelers in Hartford. Before that: data work at Yale, a Computer Science degree, and a middle-school habit of taking Android apart that never quite wore off.',
+  description:
+    'About Vincenzo D’Aria — full-stack cloud engineer, Computer Science graduate, trail walker and aspiring guitarist.',
+  bio: { kicker: 'Profile', title: 'Background', factsTitle: 'At a glance' },
+  skills: {
+    kicker: 'Index',
+    title: 'Skills & tools',
+    note: 'Technologies I’ve worked with across my career.',
+  },
+};
+
+/** Biography, one string per paragraph (whitespace is collapsed, so wrap freely). */
 export const aboutParagraphs = [
   `I got into tech as a middle-schooler, tinkering with Android kernel development and custom
    UI mods — not for any class, just out of genuine curiosity. Code was a creative medium
@@ -17,6 +33,7 @@ export const aboutParagraphs = [
    that cemented my interest in the intersection of AI and real-world impact.`,
 ].map((p) => p.replace(/\s+/g, ' ').trim());
 
+/** Headline figures: `number` is the big serif figure, `label` its caption. */
 export const aboutFacts = [
   { number: '4+', label: 'Years of experience' },
   { number: 'AWS', label: 'Cloud Practitioner Certified' },

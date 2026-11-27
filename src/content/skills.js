@@ -1,5 +1,6 @@
 /**
- * Skills section data. Add/remove groups or individual skills here.
+ * Skills shown on the /about page, as an index of categories. Add, remove or
+ * reorder groups and individual skills here — each group becomes a numbered row.
  */
 export const skillGroups = [
   {

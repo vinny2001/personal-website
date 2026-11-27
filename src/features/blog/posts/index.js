@@ -2,11 +2,12 @@
  * Blog post registry — the single source of truth for what posts exist.
  *
  * To add a post:
- *   1. Create `src/features/blog/posts/<slug>.js` exporting `meta` + a default
- *      body component (copy an existing post as a template).
+ *   1. Create `src/features/blog/posts/<slug>.jsx` exporting `meta` + a default
+ *      body component (copy an existing post as a template). The body returns a
+ *      fragment of plain elements — the page wraps it in `.prose-editorial`.
  *   2. Add one import line below and one entry to `modules`.
  *
- * Everything else (the /blog list, category grouping, the homepage preview,
+ * Everything else (the /blog list, category grouping, the homepage teaser,
  * per-post routes, goal-card links) derives from here.
  */
 import awsSummitNyc2026, { meta as awsSummitNyc2026Meta } from './aws-summit-nyc-2026';

@@ -1,60 +1,60 @@
-import { useEffect } from 'react';
+import Container from 'components/layout/Container';
+import { Reveal } from 'components/motion/Reveal';
+import PageMeta from 'components/seo/PageMeta';
+import PageHeader from 'components/ui/PageHeader';
+import { blogPage } from 'content/blog/page';
 
-import { Helmet } from 'react-helmet-async';
-
-import useFadeIn from 'hooks/useFadeIn';
-
-import BackLink from '../components/BackLink';
 import PostList from '../components/PostList';
 import groupPostsByCategory from '../lib/groupPostsByCategory';
 import { posts } from '../posts';
 
-import './Blog.css';
-
+/**
+ * /blog — the post index. Each category is a labelled section: the category
+ * name and blurb sit in a left column, its posts run down the right as ruled rows.
+ */
 const BlogListPage = () => {
-  const ref = useFadeIn({ immediate: true });
   const groups = groupPostsByCategory(posts);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   return (
     <>
-      <Helmet>
-        <title>Blog — Vincenzo D'Aria</title>
-        <meta
-          name="description"
-          content="Writing on cloud architecture, full-stack engineering, and technical research by Vincenzo D'Aria."
-        />
-      </Helmet>
+      <PageMeta title="Blog" description={blogPage.description} />
+      <PageHeader title={blogPage.title} lede={blogPage.lede} />
 
-      <div className="blog-page">
-        <div className="container">
-          <div ref={ref} className="fade-in">
-            <div className="blog-page-header">
-              <BackLink to="/">Back home</BackLink>
-              <h1 className="blog-page-title">Writing</h1>
-              <p className="blog-page-subtitle">
-                Thoughts on cloud architecture, full-stack engineering, and the occasional deep dive
-                into research topics — organized by what they're about.
-              </p>
-            </div>
+      <Container className="pb-20 sm:pb-28">
+        {groups.map((group, i) => {
+          const headingId = `blog-category-${i}`;
+          const count = group.posts.length;
 
-            {groups.map((group) => (
-              <section key={group.name} className="blog-category">
-                <div className="blog-category__header">
-                  <h2 className="blog-category__title">{group.name}</h2>
-                  {group.description && (
-                    <p className="blog-category__description">{group.description}</p>
-                  )}
-                </div>
+          return (
+            <section
+              key={group.name}
+              aria-labelledby={headingId}
+              className={`border-t lg:grid lg:grid-cols-12 lg:gap-x-8 ${i > 0 ? 'mt-20 sm:mt-28' : ''}`}
+            >
+              <Reveal className="pt-8 lg:col-span-4 lg:pr-6 lg:pt-9">
+                <p className="kicker">
+                  {count} {count === 1 ? 'post' : 'posts'}
+                </p>
+                <h2
+                  id={headingId}
+                  className="mt-2 font-display text-3xl font-normal leading-none tracking-tight text-ink sm:text-4xl"
+                >
+                  {group.name}
+                </h2>
+                {group.description && (
+                  <p className="mt-4 max-w-[32ch] text-sm leading-relaxed text-ink-muted">
+                    {group.description}
+                  </p>
+                )}
+              </Reveal>
+
+              <div className="lg:col-span-8">
                 <PostList posts={group.posts} />
-              </section>
-            ))}
-          </div>
-        </div>
-      </div>
+              </div>
+            </section>
+          );
+        })}
+      </Container>
     </>
   );
 };

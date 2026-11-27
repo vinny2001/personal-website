@@ -1,21 +1,21 @@
-import { faLinkedin, faGithub, faAws } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+/**
+ * Copy for the homepage hero. The name itself comes from `config/site`; the
+ * social links from `content/socials`.
+ */
 
-/** Rotating tagline phrases for the typewriter effect. */
+/** Line set above the name. */
+export const heroGreeting = "Hi, I'm";
+
+/**
+ * Rotating tagline phrases for the typewriter. Screen readers get the whole
+ * list at once; sighted visitors see each typed out in turn.
+ */
 export const heroPhrases = [
   'Full-Stack Engineer',
   'Cloud & Data Systems Builder',
   'AWS Certified Cloud Practitioner',
 ];
 
-/** Social / contact links shown under the hero. */
-export const heroSocials = [
-  { icon: faLinkedin, href: 'https://www.linkedin.com/in/vincenzodaria', label: 'LinkedIn' },
-  { icon: faGithub, href: 'https://github.com/vinny2001', label: 'GitHub' },
-  {
-    icon: faAws,
-    href: 'https://www.credly.com/badges/f5faaf3e-85e1-4be6-aa73-8483443e95d8/linked_in?t=sh7luz',
-    label: 'AWS Credentials',
-  },
-  { icon: faEnvelope, href: 'mailto:vincenzo.daria01@gmail.com', label: 'Email' },
-];
+/** Short intro paragraph under the name. */
+export const heroBio =
+  'I got my start customizing Android kernels in middle school, where code was a creative outlet long before it was a career. These days I build cloud-native systems for a living — and spend my off-hours hiking, learning guitar, and planning my next adventure.';
