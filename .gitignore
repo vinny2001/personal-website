@@ -26,3 +26,6 @@ yarn-error.log*
 pnpm-lock.yaml
 pnpm-workspace.yaml
 yarn.lock
+
+# Claude Code: per-machine settings and permissions (shared settings go in .claude/settings.json)
+.claude/settings.local.json
