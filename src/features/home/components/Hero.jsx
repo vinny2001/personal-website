@@ -26,7 +26,11 @@ const CURSOR_BLINK = { start: 'loop', holding: 'loop', done: 'settle' };
  */
 const Hero = () => {
   const reduceMotion = useReducedMotion();
-  const { text, phase } = useTypewriter(heroPhrases, { rounds: 1, instant: Boolean(reduceMotion) });
+  // Rotates endlessly; with reduced motion it swaps whole phrases once, then rests.
+  const { text, phase } = useTypewriter(heroPhrases, {
+    rounds: reduceMotion ? 1 : Infinity,
+    instant: Boolean(reduceMotion),
+  });
   const [first, last] = splitName(site.name);
 
   return (

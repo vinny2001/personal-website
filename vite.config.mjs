@@ -10,7 +10,7 @@ import { defineConfig } from 'vite';
 const srcDir = (p) => fileURLToPath(new URL(`./src/${p}`, import.meta.url));
 
 export default defineConfig({
-  // User GitHub Pages site (vinny2001.github.io) is served from the domain root.
+  // Served from the domain root (custom domain www.vincenzodaria.com via public/CNAME).
   base: '/',
   plugins: [react()],
   resolve: {

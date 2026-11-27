@@ -6,8 +6,10 @@ import Container from 'components/layout/Container';
 import { RevealGroup, RevealItem } from 'components/motion/Reveal';
 import PageMeta from 'components/seo/PageMeta';
 import ArrowLink from 'components/ui/ArrowLink';
+import ComingSoon from 'components/ui/ComingSoon';
 import PageHeader from 'components/ui/PageHeader';
 import Tag from 'components/ui/Tag';
+import { draftCopy } from 'content/blog/page';
 import { formatDate } from 'utils/dates';
 
 import ReadingProgress from '../components/ReadingProgress';
@@ -79,9 +81,14 @@ const PostView = ({ meta, PostContent }) => {
         </Container>
 
         <Container width="reading" className="pb-20 sm:pb-28">
-          <div className="prose-editorial blog-prose">
-            <PostContent />
-          </div>
+          {meta.draft ? (
+            // Drafts keep their outline in the post file as working notes; it is never rendered.
+            <ComingSoon note={draftCopy.note} />
+          ) : (
+            <div className="prose-editorial blog-prose">
+              <PostContent />
+            </div>
+          )}
 
           <footer className="mt-16 border-t pt-8">
             <ArrowLink to="/blog" back>

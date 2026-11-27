@@ -14,6 +14,7 @@ import StatusMark from './StatusMark';
  */
 const GoalItem = ({ goal, index = 0 }) => {
   const { icon: Icon, category, text, status, link, number } = goal;
+  const wip = status !== 'done';
 
   return (
     <motion.li
@@ -27,7 +28,7 @@ const GoalItem = ({ goal, index = 0 }) => {
       exit={{ opacity: 0, transition: { duration: DURATION.fast } }}
       viewport={VIEWPORT}
       transition={{ layout: { duration: DURATION.base, ease: EASE_OUT } }}
-      className="grid grid-cols-[2.25rem_1fr] gap-x-3 gap-y-5 border-t py-7 md:grid-cols-12 md:gap-x-6 md:py-9"
+      className={`${wip ? 'goal-row--wip border-dashed' : ''} relative isolate grid grid-cols-[2.25rem_1fr] gap-x-3 gap-y-5 border-t py-7 md:grid-cols-12 md:gap-x-6 md:py-9`}
     >
       <span className="font-mono text-xs leading-6 text-ink-muted md:col-span-1">
         {String(number).padStart(2, '0')}
@@ -35,10 +36,18 @@ const GoalItem = ({ goal, index = 0 }) => {
 
       <div className="min-w-0 md:col-span-7">
         <p className="kicker flex items-center gap-2">
-          <Icon aria-hidden="true" strokeWidth={1.75} className="size-4 shrink-0" />
+          <Icon
+            aria-hidden="true"
+            strokeWidth={wip ? 1.25 : 1.75}
+            className={`size-4 shrink-0 ${wip ? 'text-ink-muted' : ''}`.trim()}
+          />
           {category}
         </p>
-        <h3 className="mt-3 font-display text-[1.75rem] font-normal leading-[1.12] tracking-tight text-ink md:text-3xl lg:text-4xl">
+        <h3
+          className={`mt-3 font-display text-[1.75rem] font-normal leading-[1.12] tracking-tight md:text-3xl lg:text-4xl ${
+            wip ? 'text-ink-soft' : 'text-ink'
+          }`}
+        >
           {text}
         </h3>
       </div>
@@ -48,7 +57,7 @@ const GoalItem = ({ goal, index = 0 }) => {
           <StatusMark status={status} />
           {statusLabels[status] ?? statusLabels.wip}
         </p>
-        {link && (
+        {!wip && link && (
           <ArrowLink
             to={`/blog/${link}`}
             className="text-sm"

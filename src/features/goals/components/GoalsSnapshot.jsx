@@ -37,15 +37,19 @@ const GoalsSnapshot = () => {
           {shown.length > 0 ? (
             <RevealGroup as="ul" stagger={0.07} className="mt-4 border-b">
               {shown.map(({ icon: Icon, category, text }) => (
-                <RevealItem as="li" key={text} className="flex items-start gap-3 border-t py-4">
+                <RevealItem
+                  as="li"
+                  key={text}
+                  className="goal-row--wip relative isolate flex items-start gap-3 border-t border-dashed py-4"
+                >
                   <Icon
                     aria-hidden="true"
-                    strokeWidth={1.75}
+                    strokeWidth={1.25}
                     className="mt-0.5 size-4 shrink-0 text-ink-muted"
                   />
                   <div className="min-w-0">
                     <p className="kicker">{category}</p>
-                    <p className="mt-1 text-ink">{text}</p>
+                    <p className="mt-1 text-ink-soft">{text}</p>
                   </div>
                 </RevealItem>
               ))}

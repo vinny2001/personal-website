@@ -12,7 +12,7 @@
 
 @container (min-width: 30rem) {
   .now-card__entry {
-    grid-template-columns: 8.5rem minmax(0, 1fr);
+    grid-template-columns: 9.5rem minmax(0, 1fr);
     column-gap: 1.5rem;
     align-items: baseline;
   }

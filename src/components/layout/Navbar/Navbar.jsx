@@ -34,9 +34,11 @@ const Navbar = () => {
         }`}
       >
         <Container className="flex h-[var(--nav-height)] items-center justify-between gap-6">
-          <Link to="/" className="font-display text-[1.65rem] leading-none text-ink">
-            {site.name}
-            <span className="text-accent">.</span>
+          <Link to="/" className="font-display text-[1.85rem] leading-none text-ink">
+            <span aria-hidden="true">
+              VD<span className="text-accent">.</span>
+            </span>
+            <span className="sr-only">{site.name}, home</span>
           </Link>
 
           <nav aria-label="Main" className="hidden md:block">

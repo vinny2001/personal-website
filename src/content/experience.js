@@ -27,15 +27,25 @@ const experience = [
     start: '2025-06',
     end: null,
     intro:
-      'Full-stack engineer in the Corporate Technology — Finance and Investments Value Stream, building an AWS cloud-based internal web app for resource costing and forecasting across 12 lines of business.',
+      'Full-stack engineer in Corporate Technology’s Finance & Investments value stream, building a suite of data-driven internal corporate finance applications on AWS — and the AI tooling that helps my team ship them.',
     bullets: [
-      'Frontend (Angular): data-driven UI components powering forecasting and costing insights for 30,000+ enterprise resources.',
-      'Middle-end (TypeScript, Node.js, AWS): in-house REST APIs and API Gateway integrations for secure, efficient data transactions.',
-      'Backend (PostgreSQL, AWS): schema design and data querying supporting the core forecasting engine.',
-      'Batch & analytics: Python-based Lambda and Glue jobs processing Jira and Workday data to generate business insights for ~1M costable items.',
-      'CI/CD: manage GitHub Actions pipelines across all stacks for automated deployments to dev, test, and production.',
+      'Build and maintain three data-driven corporate finance applications, including a resource costing & forecasting platform spanning 12 lines of business and 30,000+ enterprise resources.',
+      'Work across the stack: Angular frontends, TypeScript/Node.js REST APIs behind API Gateway, PostgreSQL schemas, and Python Lambda & Glue jobs processing ~1M costable items from Jira and Workday.',
+      'Build Claude-based agents, skills, and plugins that automate my team’s and org’s development and engineering workflows.',
+      'Pitched an internal proof of concept for AI-assisted engineering insights, which deepened my expertise in Claude plugins, AI telemetry, and tokenization.',
+      'Own the GitHub Actions CI/CD pipelines across all stacks for automated deployments to dev, test, and production.',
     ],
-    tags: ['Angular', 'TypeScript', 'Node.js', 'Python', 'PostgreSQL', 'AWS', 'GitHub Actions'],
+    tags: [
+      'Angular',
+      'TypeScript',
+      'Node.js',
+      'Python',
+      'PostgreSQL',
+      'AWS',
+      'Claude',
+      'AI Agents',
+      'GitHub Actions',
+    ],
   },
   {
     role: 'Software Engineer — EDP',
@@ -90,7 +100,7 @@ const experience = [
 /** Copy for the /work page masthead and <head>. */
 export const workPage = {
   title: 'The work so far.',
-  lede: 'From data analysis at the Yale School of Medicine to full-stack cloud engineering at Travelers — newest first, with each company’s roles grouped so the progression is easy to follow.',
+  lede: 'From data analysis at the Yale School of Medicine to AI-driven, full-stack cloud engineering at Travelers — newest first, with each company’s roles grouped so the progression is easy to follow.',
   description:
     'Work experience of Vincenzo D’Aria — full-stack cloud engineering at Travelers and data engineering at Yale.',
 };

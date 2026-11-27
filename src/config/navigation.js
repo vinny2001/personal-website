@@ -1,4 +1,4 @@
-import { Briefcase, House, PenLine, Target, UserRound } from 'lucide-react';
+import { Briefcase, House, Mail, PenLine, Target, UserRound } from 'lucide-react';
 
 /**
  * Primary site navigation — single source of truth for the Navbar, the mobile
@@ -11,6 +11,7 @@ export const navLinks = [
   { to: '/work', label: 'Work', icon: Briefcase },
   { to: '/goals', label: 'Goals', icon: Target },
   { to: '/blog', label: 'Blog', icon: PenLine },
+  { to: '/contact', label: 'Contact', icon: Mail },
 ].map((link, i) => ({ ...link, number: String(i + 1).padStart(2, '0') }));
 
 /** The nav entry a pathname belongs to (`/blog/some-post` → Blog). */

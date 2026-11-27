@@ -9,7 +9,8 @@ const GLIDE = { duration: DURATION.base, ease: EASE_OUT };
 /**
  * Status filter: a row of toggle buttons (`aria-pressed`) with a count each.
  * The ink underline glides between the active options (shared `layoutId`).
- * `options` = [{ id, label }], `counts` = { [id]: number }.
+ * `options` = [{ id, label }], `counts` = { [id]: number } (an option with no
+ * count, like the scratchpad, shows none).
  */
 const GoalFilter = ({ options, counts, value, onChange, label }) => {
   const indicatorId = useId();
@@ -29,7 +30,9 @@ const GoalFilter = ({ options, counts, value, onChange, label }) => {
             }`}
           >
             {option.label}
-            <span className="font-mono text-xs text-ink-muted">{counts[option.id]}</span>
+            {counts[option.id] !== undefined && (
+              <span className="font-mono text-xs text-ink-muted">{counts[option.id]}</span>
+            )}
             {active && (
               <motion.span
                 layoutId={indicatorId}

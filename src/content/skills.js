@@ -4,6 +4,20 @@
  */
 export const skillGroups = [
   {
+    category: 'AI & Agentic Engineering',
+    skills: [
+      'Prompt engineering',
+      'Agentic AI',
+      'Claude agents',
+      'Claude Code skills',
+      'Claude Code plugins',
+      'Forward-deployed engineering',
+      'LLM usage telemetry',
+      'Chunking & tokenization',
+      'RAG fundamentals',
+    ],
+  },
+  {
     category: 'Frontend',
     skills: ['Angular', 'React', 'TypeScript', 'JavaScript', 'HTML/CSS'],
   },

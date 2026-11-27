@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* ── Design tokens ─────────────────────────────────────────────────
-   Editorial palette: warm paper + ink, a single vermilion accent.
+   Editorial palette: warm paper + ink, a single blue accent.
    `data-theme` on <html> is set before first paint (index.html) and
    toggled by hooks/useTheme. Components read these tokens directly or
    via the Tailwind colour names in tailwind.config.js. */
@@ -18,10 +18,10 @@
   --ink-soft: #4b463c;
   --ink-muted: #6f695c;
   --rule: #d8d1c2;
-  --accent: #c63a1a;
-  --accent-hover: #a32e12;
-  --accent-wash: rgb(198 58 26 / 0.08);
-  --selection: rgb(198 58 26 / 0.18);
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-wash: rgb(37 99 235 / 0.08);
+  --selection: rgb(37 99 235 / 0.18);
   --shadow-lift: 0 1px 0 rgb(23 21 15 / 0.04), 0 18px 40px -20px rgb(23 21 15 / 0.25);
   --grain-opacity: 0.05;
 
@@ -43,10 +43,10 @@
   --ink-soft: #b3ac9d;
   --ink-muted: #8a8476;
   --rule: #2d2a25;
-  --accent: #ff6b3d;
-  --accent-hover: #ff8a63;
-  --accent-wash: rgb(255 107 61 / 0.1);
-  --selection: rgb(255 107 61 / 0.25);
+  --accent: #58a6ff;
+  --accent-hover: #79b8ff;
+  --accent-wash: rgb(88 166 255 / 0.1);
+  --selection: rgb(88 166 255 / 0.25);
   --shadow-lift: 0 1px 0 rgb(0 0 0 / 0.25), 0 18px 40px -20px rgb(0 0 0 / 0.7);
   --grain-opacity: 0.07;
 }
@@ -143,6 +143,15 @@
   .link-draw:hover,
   .link-draw:focus-visible {
     background-size: 100% 1px;
+  }
+
+  /* "Not done yet" print tint: a faint diagonal hatch behind the content. */
+  .hatched {
+    background-image: repeating-linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--ink-muted) 14%, transparent) 0 1px,
+      transparent 1px 7px
+    );
   }
 
   /* Long-form reading copy (blog posts, About bio). */

@@ -1,0 +1,103 @@
+<!--
+  EmailJS template for the vincenzodaria.com contact form
+  ========================================================
+
+  SETUP (about five minutes)
+  1. Sign in at https://dashboard.emailjs.com.
+  2. Email Services > Add New Service > connect the mailbox that should
+     receive messages (e.g. Gmail). Copy its Service ID.
+  3. Email Templates > Create New Template, then fill in:
+       Subject  : {{subject_line}}
+       To Email : the address that should receive these messages
+       From Name: {{from_name}}
+       Reply To : {{reply_to}}
+     In the content editor switch to the code view ("<>" button) and paste
+     everything from <table ...> to </table> below. Save, and copy the
+     Template ID.
+  4. Account > General: copy the Public Key.
+     Optional hardening under Account > Security: restrict allowed domains to
+     www.vincenzodaria.com (and localhost for testing) and enable rate limits.
+  5. Copy .env.example to .env.local and set:
+       VITE_EMAILJS_SERVICE_ID=...
+       VITE_EMAILJS_TEMPLATE_ID=...
+       VITE_EMAILJS_PUBLIC_KEY=...
+     Restart `npm start`. For production, expose the same three variables to
+     the build (they are public values) before `npm run deploy`.
+
+  Variables used: {{subject_line}} {{category}} {{from_name}} {{reply_to}}
+  {{subject}} {{message}} {{sent_at}} {{sent_at_iso}} {{source}} {{page_url}}
+  (The message keeps its line breaks through the white-space:pre-wrap style.
+  EmailJS escapes variables with double braces, so visitor text is safe.)
+
+  Email-client-safe on purpose: table layout, inline styles, web-safe font
+  stacks, no external assets. Light "paper and ink" look with a blue accent.
+-->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#f5f2ea;margin:0;padding:0;">
+  <tr>
+    <td align="center" style="padding:32px 16px;">
+      <table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" style="width:100%;max-width:600px;background-color:#fbf9f4;border:1px solid #d8d1c2;">
+
+        <!-- Banner -->
+        <tr>
+          <td style="background-color:#17150f;padding:12px 32px;font-family:'Courier New',Courier,monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#f5f2ea;">
+            Sent from your website contact form
+          </td>
+        </tr>
+
+        <!-- Category + headline -->
+        <tr>
+          <td style="padding:36px 32px 8px 32px;">
+            <span style="display:inline-block;border:1px solid #2563eb;color:#2563eb;font-family:'Courier New',Courier,monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:5px 12px;">
+              {{category}}
+            </span>
+            <h1 style="margin:22px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-size:34px;line-height:1.1;font-weight:normal;color:#17150f;">
+              A note from {{from_name}}
+            </h1>
+          </td>
+        </tr>
+
+        <!-- Sender -->
+        <tr>
+          <td style="padding:24px 32px 0 32px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-top:1px solid #d8d1c2;">
+              <tr>
+                <td width="96" valign="top" style="padding:14px 0;font-family:'Courier New',Courier,monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#6f695c;">From</td>
+                <td valign="top" style="padding:14px 0;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#17150f;">
+                  {{from_name}}<br>
+                  <a href="mailto:{{reply_to}}" style="color:#2563eb;text-decoration:underline;">{{reply_to}}</a>
+                  <span style="color:#6f695c;font-size:13px;"> (hit Reply to answer)</span>
+                </td>
+              </tr>
+              <tr>
+                <td width="96" valign="top" style="padding:14px 0;border-top:1px solid #d8d1c2;font-family:'Courier New',Courier,monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#6f695c;">Subject</td>
+                <td valign="top" style="padding:14px 0;border-top:1px solid #d8d1c2;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#17150f;">
+                  {{subject_line}}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- Message -->
+        <tr>
+          <td style="padding:8px 32px 36px 32px;">
+            <div style="border-top:1px solid #d8d1c2;padding-top:20px;">
+              <div style="font-family:'Courier New',Courier,monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#6f695c;margin-bottom:12px;">Message</div>
+              <div style="border-left:3px solid #2563eb;padding:2px 0 2px 18px;font-family:Georgia,'Times New Roman',serif;font-size:18px;line-height:1.65;color:#17150f;white-space:pre-wrap;word-wrap:break-word;">{{message}}</div>
+            </div>
+          </td>
+        </tr>
+
+        <!-- Footer metadata -->
+        <tr>
+          <td style="background-color:#ebe6da;border-top:1px solid #d8d1c2;padding:20px 32px;font-family:'Courier New',Courier,monospace;font-size:11px;line-height:1.8;color:#6f695c;">
+            <strong style="color:#4b463c;font-weight:normal;">SENT&nbsp;&nbsp;&nbsp;</strong> {{sent_at}} ({{sent_at_iso}})<br>
+            <strong style="color:#4b463c;font-weight:normal;">SOURCE</strong> {{source}}<br>
+            <strong style="color:#4b463c;font-weight:normal;">PAGE&nbsp;&nbsp;&nbsp;</strong> <a href="{{page_url}}" style="color:#2563eb;text-decoration:underline;">{{page_url}}</a>
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>

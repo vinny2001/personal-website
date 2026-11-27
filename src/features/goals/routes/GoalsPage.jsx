@@ -3,6 +3,7 @@ import { useState } from 'react';
 import Container from 'components/layout/Container';
 import { Reveal } from 'components/motion/Reveal';
 import PageMeta from 'components/seo/PageMeta';
+import ComingSoon from 'components/ui/ComingSoon';
 import PageHeader from 'components/ui/PageHeader';
 import SectionHeader from 'components/ui/SectionHeader';
 import { goalFilters, goals, goalsPage } from 'content/goals';
@@ -18,7 +19,8 @@ const counts = goalCounts(goals);
 
 const GoalsPage = () => {
   const [filter, setFilter] = useState('all');
-  const visible = filterGoals(numberedGoals, filter);
+  const scratchpad = goalFilters.find((option) => option.id === filter && option.scratchpad);
+  const visible = scratchpad ? [] : filterGoals(numberedGoals, filter);
 
   return (
     <>
@@ -52,12 +54,18 @@ const GoalsPage = () => {
               value={filter}
               onChange={setFilter}
             />
-            <p role="status" className="kicker sr-only sm:not-sr-only">
-              Showing {visible.length} of {goals.length}
-            </p>
+            {!scratchpad && (
+              <p role="status" className="kicker sr-only sm:not-sr-only">
+                Showing {visible.length} of {goals.length}
+              </p>
+            )}
           </div>
 
-          <GoalList goals={visible} labelledBy="goals-list-heading" />
+          {scratchpad ? (
+            <ComingSoon className="mt-8" note={scratchpad.note} />
+          ) : (
+            <GoalList goals={visible} labelledBy="goals-list-heading" />
+          )}
         </section>
       </Container>
     </>

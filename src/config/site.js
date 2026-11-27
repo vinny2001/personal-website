@@ -3,8 +3,7 @@
  */
 const site = {
   name: "Vincenzo D'Aria",
-  url: 'https://vinny2001.github.io',
-  authorEmail: 'vincenzo.daria01@gmail.com',
+  url: 'https://www.vincenzodaria.com',
 };
 
 export default site;

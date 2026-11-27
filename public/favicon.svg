@@ -2,12 +2,14 @@
   <style>
     .bg { fill: #f5f2ea; }
     .fg { fill: #17150f; }
+    .dot { fill: #2563eb; }
     @media (prefers-color-scheme: dark) {
       .bg { fill: #12110f; }
       .fg { fill: #ece7dc; }
+      .dot { fill: #58a6ff; }
     }
   </style>
   <rect class="bg" width="64" height="64" rx="12" />
   <text class="fg" x="28" y="49" text-anchor="middle" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif" font-size="50">V</text>
-  <circle cx="50" cy="45" r="5" fill="#e2401c" />
+  <circle class="dot" cx="50" cy="45" r="5" />
 </svg>

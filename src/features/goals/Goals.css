@@ -35,3 +35,18 @@
     grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
   }
 }
+
+/* In-motion rows: a faint hatched wash that fades out left to right, like an
+   unfinished print tint. Sits behind the text (never lowers its contrast much)
+   and is purely decorative; the row has no hover or pointer affordance. */
+.goal-row--wip::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.1;
+  background-image: repeating-linear-gradient(135deg, var(--ink-muted) 0 1px, transparent 1px 6px);
+  -webkit-mask-image: linear-gradient(to right, #000, transparent 85%);
+  mask-image: linear-gradient(to right, #000, transparent 85%);
+}

@@ -4,7 +4,8 @@ export const MAX_FEATURED = 3;
  * Resolves configured featured slugs to post metadata for the homepage preview.
  *
  * - keeps `featuredSlugs` order, ignores unknown slugs, caps at 3
- * - falls back to the newest posts when nothing resolves (guarantees 1–3)
+ * - never features drafts (`meta.draft`), whether named explicitly or via the fallback
+ * - falls back to the newest published posts when nothing resolves
  *
  * @param {string[]} featuredSlugs
  * @param {Object.<string, object>} metaBySlug  slug -> post meta
@@ -14,7 +15,9 @@ const resolveFeatured = (featuredSlugs, metaBySlug, allPosts) => {
   const resolved = [];
   featuredSlugs.forEach((slug) => {
     const meta = metaBySlug[slug];
-    if (meta) resolved.push(meta);
+    if (meta?.draft) {
+      if (import.meta.env.DEV) console.warn(`[blog] featuredSlugs: "${slug}" is a draft; skipped`);
+    } else if (meta) resolved.push(meta);
     else if (import.meta.env.DEV) {
       console.warn(`[blog] featuredSlugs: no post found for "${slug}"`);
     }
@@ -27,7 +30,7 @@ const resolveFeatured = (featuredSlugs, metaBySlug, allPosts) => {
   }
 
   const featured = resolved.slice(0, MAX_FEATURED);
-  return featured.length ? featured : allPosts.slice(0, MAX_FEATURED);
+  return featured.length ? featured : allPosts.filter((post) => !post.draft).slice(0, MAX_FEATURED);
 };
 
 export default resolveFeatured;

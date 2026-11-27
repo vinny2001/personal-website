@@ -4,6 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 import Tag from 'components/ui/Tag';
+import { draftCopy } from 'content/blog/page';
 
 import { formatDate } from 'utils/dates';
 
@@ -13,6 +14,7 @@ import './PostRow.css';
  * One entry in the editorial post index: mono date + reading time, serif title,
  * excerpt, tags, and an arrow that nudges on hover. The entire row is a single
  * link (named by its title, described by its excerpt) with no nested controls.
+ * A post with `meta.draft` carries a "Draft" tag above its title.
  * `compact` drops the tags and clamps the excerpt for the homepage teaser.
  */
 const PostRow = ({ post, compact = false }) => {
@@ -33,6 +35,11 @@ const PostRow = ({ post, compact = false }) => {
       </p>
 
       <div className="post-row__body">
+        {post.draft && (
+          <p className="mb-3">
+            <Tag variant="accent">{draftCopy.label}</Tag>
+          </p>
+        )}
         <h3
           id={titleId}
           className={`font-display font-normal leading-[1.08] tracking-[-0.01em] text-ink transition-colors duration-300 group-hover:text-accent ${

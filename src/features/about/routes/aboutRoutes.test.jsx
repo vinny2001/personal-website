@@ -3,6 +3,8 @@ import { HelmetProvider } from 'react-helmet-async';
 import { MemoryRouter, Route, Routes } from 'react-router-dom';
 
 import { aboutFacts, aboutPage, aboutParagraphs } from 'content/about';
+import certifications from 'content/certifications';
+import publications from 'content/publications';
 import { skillGroups } from 'content/skills';
 
 import AboutPage from './AboutPage';
@@ -55,5 +57,37 @@ describe('/about', () => {
         expect(within(skills).getByText(skill).closest('li')).not.toBeNull();
       });
     });
+  });
+});
+
+test('/about embeds each certification badge with a verify link', () => {
+  renderAbout();
+  expect(
+    screen.getByRole('heading', { level: 2, name: aboutPage.certifications.title })
+  ).toBeInTheDocument();
+  certifications.forEach(({ name, badgeId }) => {
+    expect(screen.getByTitle(`${name} badge on Credly`)).toHaveAttribute(
+      'src',
+      `https://www.credly.com/embedded_badge/${badgeId}`
+    );
+  });
+  expect(screen.getAllByRole('link', { name: 'Verify' })).toHaveLength(certifications.length);
+});
+
+test('/about lists publications with paper and write-up links', () => {
+  renderAbout();
+  expect(
+    screen.getByRole('heading', { level: 2, name: aboutPage.publications.title })
+  ).toBeInTheDocument();
+  const section = screen.getByRole('region', { name: aboutPage.publications.title });
+
+  publications.forEach(({ title, url, post }) => {
+    expect(within(section).getByRole('heading', { level: 3, name: title })).toBeInTheDocument();
+    expect(
+      within(section).getByRole('link', { name: aboutPage.publications.paperLabel })
+    ).toHaveAttribute('href', url);
+    expect(
+      within(section).getByRole('link', { name: aboutPage.publications.postLabel })
+    ).toHaveAttribute('href', `/blog/${post}`);
   });
 });
