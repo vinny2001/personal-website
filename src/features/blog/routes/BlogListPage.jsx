@@ -1,60 +1,34 @@
-import { useEffect } from 'react';
+import Container from 'components/layout/Container';
+import PageMeta from 'components/seo/PageMeta';
+import PageHeader from 'components/ui/PageHeader';
+import { blogPage } from 'content/blog/page';
 
-import { Helmet } from 'react-helmet-async';
-
-import useFadeIn from 'hooks/useFadeIn';
-
-import BackLink from '../components/BackLink';
-import PostList from '../components/PostList';
+import CategoryGroup from '../components/CategoryGroup';
 import groupPostsByCategory from '../lib/groupPostsByCategory';
 import { posts } from '../posts';
 
-import './Blog.css';
-
+/**
+ * /blog — the post index. Each category is a collapsible, labelled section
+ * (see CategoryGroup): name and blurb on the left, ruled post rows on the right.
+ */
 const BlogListPage = () => {
-  const ref = useFadeIn({ immediate: true });
   const groups = groupPostsByCategory(posts);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   return (
     <>
-      <Helmet>
-        <title>Blog — Vincenzo D'Aria</title>
-        <meta
-          name="description"
-          content="Writing on cloud architecture, full-stack engineering, and technical research by Vincenzo D'Aria."
-        />
-      </Helmet>
+      <PageMeta title="Blog" description={blogPage.description} />
+      <PageHeader title={blogPage.title} lede={blogPage.lede} />
 
-      <div className="blog-page">
-        <div className="container">
-          <div ref={ref} className="fade-in">
-            <div className="blog-page-header">
-              <BackLink to="/">Back home</BackLink>
-              <h1 className="blog-page-title">Writing</h1>
-              <p className="blog-page-subtitle">
-                Thoughts on cloud architecture, full-stack engineering, and the occasional deep dive
-                into research topics — organized by what they're about.
-              </p>
-            </div>
-
-            {groups.map((group) => (
-              <section key={group.name} className="blog-category">
-                <div className="blog-category__header">
-                  <h2 className="blog-category__title">{group.name}</h2>
-                  {group.description && (
-                    <p className="blog-category__description">{group.description}</p>
-                  )}
-                </div>
-                <PostList posts={group.posts} />
-              </section>
-            ))}
-          </div>
-        </div>
-      </div>
+      <Container className="pb-20 sm:pb-28">
+        {groups.map((group, i) => (
+          <CategoryGroup
+            key={group.name}
+            group={group}
+            headingId={`blog-category-${i}`}
+            className={i > 0 ? 'mt-20 sm:mt-28' : ''}
+          />
+        ))}
+      </Container>
     </>
   );
 };

@@ -1,28 +1,25 @@
-import { Routes, Route, HashRouter } from 'react-router-dom';
+import { MotionConfig } from 'motion/react';
 import { HelmetProvider } from 'react-helmet-async';
+import { HashRouter } from 'react-router-dom';
 
+import Footer from 'components/layout/Footer/Footer';
 import Navbar from 'components/layout/Navbar/Navbar';
-import BlogListPage from 'features/blog/routes/BlogListPage';
-import BlogPostPage from 'features/blog/routes/BlogPostPage';
-import Home from 'features/home/Home';
+import SkipLink from 'components/layout/SkipLink';
 
-import './App.css';
+import AppRoutes from './AppRoutes';
 
-function App() {
-  return (
-    <HelmetProvider>
-      <HashRouter basename="/">
-        <div className="App">
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/blog" element={<BlogListPage />} />
-            <Route path="/blog/:slug" element={<BlogPostPage />} />
-          </Routes>
-        </div>
+/** App shell. `reducedMotion="user"` tones every animation down per the OS setting. */
+const App = () => (
+  <HelmetProvider>
+    <MotionConfig reducedMotion="user">
+      <HashRouter>
+        <SkipLink />
+        <Navbar />
+        <AppRoutes />
+        <Footer />
       </HashRouter>
-    </HelmetProvider>
-  );
-}
+    </MotionConfig>
+  </HelmetProvider>
+);
 
 export default App;

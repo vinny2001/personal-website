@@ -1,22 +1,22 @@
 {
-  "homepage": "http://vinny2001.github.io",
+  "homepage": "https://www.vincenzodaria.com",
   "name": "personal-website",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emailjs/browser": "^5.0.3",
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
     "@fortawesome/free-brands-svg-icons": "^6.5.2",
-    "@fortawesome/free-solid-svg-icons": "^6.5.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
-    "bootstrap": "^5.3.1",
+    "lucide-react": "^1.82.0",
+    "motion": "^14.14.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet-async": "^3.0.0",
-    "react-router-dom": "^6.16.0",
-    "web-vitals": "^2.1.4"
+    "react-router-dom": "^6.16.0"
   },
   "scripts": {
     "start": "vite",
@@ -44,6 +44,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.5",
+    "@testing-library/dom": "^8.20.1",
     "@vitejs/plugin-react": "^6.1.1",
     "autoprefixer": "^10.5.5",
     "eslint": "^9.39.5",

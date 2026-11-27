@@ -1,10 +1,25 @@
 /**
- * Skills section data. Add/remove groups or individual skills here.
+ * Skills shown on the /about page, as an index of categories. Add, remove or
+ * reorder groups and individual skills here — each group becomes a numbered row.
  */
 export const skillGroups = [
   {
+    category: 'AI & Agentic Engineering',
+    skills: [
+      'Prompt engineering',
+      'Agent design & orchestration',
+      'Claude agents',
+      'Claude Code skills & plugins',
+      'MCP servers',
+      'LLM observability & telemetry',
+      'Chunking & tokenization',
+      'RAG fundamentals',
+      'Forward-deployed engineering',
+    ],
+  },
+  {
     category: 'Frontend',
-    skills: ['Angular', 'React', 'TypeScript', 'JavaScript', 'HTML/CSS'],
+    skills: ['Angular', 'RxJS', 'React', 'TypeScript', 'JavaScript', 'Tailwind CSS', 'HTML/CSS'],
   },
   {
     category: 'Backend',
@@ -12,14 +27,36 @@ export const skillGroups = [
   },
   {
     category: 'Cloud & Infrastructure',
-    skills: ['AWS', 'Lambda', 'API Gateway', 'Glue', 'Terraform', 'GitHub Actions'],
+    skills: [
+      'AWS Lambda',
+      'API Gateway',
+      'CloudFront',
+      'S3',
+      'Amazon ECR',
+      'IAM',
+      'AWS Glue',
+      'EventBridge',
+      'AutoSys',
+      'CloudWatch',
+      'CloudTrail',
+      'Terraform (HCL)',
+      'AWS CDK',
+      'AWS SAM',
+      'Serverless architecture',
+    ],
   },
   {
     category: 'Data & Databases',
-    skills: ['PostgreSQL', 'SQL', 'SQL Server', 'DynamoDB'],
+    skills: [
+      'PostgreSQL',
+      'SQL Server',
+      'DynamoDB',
+      'pandas (DataFrames)',
+      'ETL pipelines (Lambda + Glue)',
+    ],
   },
   {
     category: 'Tools & Practices',
-    skills: ['Git', 'CI/CD', 'Agile', 'Jira', 'Bash', 'Linux'],
+    skills: ['Git', 'GitHub Actions', 'CI/CD', 'Docker', 'Bash', 'Linux', 'Agile', 'Jira'],
   },
 ];

@@ -14,7 +14,7 @@ export const meta = {
 };
 
 const NeuralNetworksCancerRemediation = () => (
-  <article>
+  <>
     <p>
       During my senior year at Central Connecticut State University, I wrote and published a thesis
       exploring a question that sits at the intersection of AI, robotics, and medicine: could neural
@@ -23,13 +23,15 @@ const NeuralNetworksCancerRemediation = () => (
       real-world constraints that make this a hard problem.
     </p>
 
-    <figure className="post-figure">
+    <figure>
       <img
         src="/images/vinny_poster_presentation.jpg"
         alt="Vincenzo presenting his thesis poster on neural network-guided nanobots at CCSU"
-        className="post-figure__img"
+        width="1600"
+        height="1166"
+        decoding="async"
       />
-      <figcaption className="post-figure__caption">
+      <figcaption>
         Thesis poster presentation at CCSU's 2023 University Research and Creative Achievement Day
         (URCAD) conference.
       </figcaption>
@@ -192,7 +194,7 @@ const NeuralNetworksCancerRemediation = () => (
         Neural Network-Guided Nanobots for Cancer Remediation — CCSU Library
       </a>
     </p>
-  </article>
+  </>
 );
 
 export default NeuralNetworksCancerRemediation;

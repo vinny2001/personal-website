@@ -1,0 +1,76 @@
+/* Layout for the post index rows. Driven by the width of the enclosing list
+   (container queries), not the viewport, so the same row works full-width on
+   /blog and inside a narrower column on the homepage. */
+
+.post-list {
+  container-type: inline-size;
+}
+
+.post-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    'meta  meta'
+    'body  arrow';
+  column-gap: 1.5rem;
+  row-gap: 0.9rem;
+  padding-block: 1.75rem;
+  color: inherit;
+}
+
+.post-row--compact {
+  padding-block: 1.4rem;
+}
+
+.post-row__meta {
+  grid-area: meta;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 0.75rem;
+}
+
+/* Stacked layout: "Jun 17, 2026 · 6 min read" on one line. */
+.post-row__meta > span::before {
+  content: '·';
+  margin-right: 0.75rem;
+}
+
+.post-row__body {
+  grid-area: body;
+  min-width: 0;
+}
+
+.post-row__arrow {
+  grid-area: arrow;
+  margin-top: 0.3rem;
+}
+
+@container (min-width: 36rem) {
+  .post-row {
+    grid-template-columns: 8rem minmax(0, 1fr) auto;
+    grid-template-areas: 'meta body arrow';
+    column-gap: 2rem;
+    row-gap: 0;
+    padding-block: 2.25rem;
+  }
+
+  .post-row--compact {
+    padding-block: 1.75rem;
+  }
+
+  /* Wide layout: date and reading time stack in a left-hand column. */
+  .post-row__meta {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 0.4rem;
+    padding-top: 0.6rem;
+  }
+
+  .post-row__meta > span::before {
+    content: none;
+  }
+
+  .post-row__arrow {
+    margin-top: 0.5rem;
+  }
+}

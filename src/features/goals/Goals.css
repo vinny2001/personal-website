@@ -1,160 +1,52 @@
-/* ── Kanban board ──────────────────────────────────────────────── */
-.goals-board {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem;
-  align-items: start;
+/* Status marks, shared by the progress meter, its legend, and each goal row.
+   Accomplished = solid accent block. In motion = hatched, like a print tint:
+   drawn, but not yet filled in. */
+.goal-mark {
+  display: block;
+  box-sizing: border-box;
+  border: 1px solid var(--ink-muted);
+  background-image: repeating-linear-gradient(135deg, var(--ink-muted) 0 1px, transparent 1px 4px);
 }
 
-.goals-column {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 1rem;
-}
-
-.goals-column__header {
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.25rem 0.5rem 0.75rem;
-  margin-bottom: 0.75rem;
-  border-bottom: 1px solid var(--border);
-}
-
-.goals-column__title {
-  margin: 0;
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--text-secondary);
-}
-
-.goals-column__count {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 1.4rem;
-  height: 1.4rem;
-  padding: 0 0.4rem;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--accent);
-  background: var(--accent-subtle);
-  border-radius: 100px;
-}
-
-.goals-column__cards {
-  display: flex;
-  flex-direction: column;
-  gap: 0.875rem;
-}
-
-/* ── Cards ─────────────────────────────────────────────────────── */
-.goal-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1.25rem 1.25rem 1.25rem 1rem;
-  display: flex;
-  align-items: flex-start;
-  gap: 0.875rem;
-  box-shadow: var(--shadow-sm);
-  position: relative;
-  transition:
-    box-shadow 0.2s ease,
-    border-color 0.2s ease,
-    transform 0.2s ease;
-  text-align: left;
-}
-
-.goal-card:hover {
-  box-shadow: var(--shadow-md);
+.goal-mark--done {
   border-color: var(--accent);
-  transform: translateY(-2px);
+  background-color: var(--accent);
+  background-image: none;
 }
 
-.goal-icon {
-  flex-shrink: 0;
-  font-size: 1.4rem;
-  line-height: 1;
-  margin-top: 1px;
+/* A meter segment that will be filled: the hatch shows until the fill sweeps over it. */
+.goal-mark--filling {
+  border-color: var(--accent);
 }
 
-.goal-content {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
+/* Home-page snapshot: laid out by its own width (container query), not the
+   viewport, so it holds up in a narrow column as well as full-width. */
+.goals-snapshot {
+  container-type: inline-size;
 }
 
-.goal-category {
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.07em;
-  color: var(--accent);
+.goals-snapshot__grid {
+  display: grid;
+  gap: 2.5rem;
 }
 
-.goal-text {
-  margin: 0;
-  font-size: 0.95rem;
-  color: var(--text-secondary);
-  line-height: 1.55;
+@container (min-width: 36rem) {
+  .goals-snapshot__grid {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  }
 }
 
-/* Linked cards (goal has a blog write-up) */
-a.goal-card--linked {
-  color: inherit;
-  padding-right: 2.25rem;
-}
-
-.goal-card__arrow {
+/* In-motion rows: a faint hatched wash that fades out left to right, like an
+   unfinished print tint. Sits behind the text (never lowers its contrast much)
+   and is purely decorative; the row has no hover or pointer affordance. */
+.goal-row--wip::before {
+  content: '';
   position: absolute;
-  right: 1rem;
-  top: 1.25rem;
-  color: var(--accent);
-  opacity: 0;
-  transform: translateX(-4px);
-  transition:
-    opacity 0.2s ease,
-    transform 0.2s ease;
-}
-
-.goal-card--linked:hover .goal-card__arrow {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* Accomplished cards */
-.goal-card--done {
-  box-shadow: none;
-}
-
-.goal-card--done .goal-icon,
-.goal-card--done .goal-text {
-  opacity: 0.6;
-}
-
-.goal-card--done .goal-text::before {
-  content: '✓ ';
-  color: var(--accent);
-  font-weight: 700;
-  opacity: 1;
-}
-
-.goal-card--done .goal-category {
-  color: var(--text-muted);
-}
-
-@media (max-width: 720px) {
-  .goals-board {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 480px) {
-  .goal-text {
-    font-size: 0.9rem;
-  }
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.1;
+  background-image: repeating-linear-gradient(135deg, var(--ink-muted) 0 1px, transparent 1px 6px);
+  -webkit-mask-image: linear-gradient(to right, #000, transparent 85%);
+  mask-image: linear-gradient(to right, #000, transparent 85%);
 }

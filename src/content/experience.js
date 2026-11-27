@@ -1,78 +1,108 @@
 /**
- * Work experience data — update this file to change the Experience section.
- * Items are displayed in reverse-chronological order (newest first).
+ * Work history — edit this file to change the /work page and the "current
+ * role" teaser on the homepage.
+ *
+ * `experience` is listed NEWEST FIRST. Each entry:
+ *
+ *   role      string       Job title (shown as the entry's heading).
+ *   company   string       Consecutive entries with the same company are grouped
+ *                          into one block, so keep a company's roles adjacent.
+ *   location  string       "City, ST".
+ *   start     'YYYY-MM'    First month in the role.
+ *   end       'YYYY-MM' | null
+ *                          Last month, or `null` for the role I'm in now
+ *                          (displayed as "Present"; tenure counts up to today).
+ *   intro     string?      Optional one-paragraph summary shown above the bullets
+ *                          (also used by the homepage teaser).
+ *   bullets   string[]     What I did, one sentence each.
+ *   tags      string[]     Tech stack.
+ *
+ * Dates are formatted in code (features/work/lib), so just keep them ISO-ish.
  */
 const experience = [
   {
-    id: 1,
     role: 'Associate Software Engineer',
     company: 'Travelers',
     location: 'Hartford, CT',
-    startDate: 'June 2025',
-    endDate: 'Present',
+    start: '2025-06',
+    end: null,
     intro:
-      'Full-stack engineer in the Corporate Technology — Finance and Investments Value Stream, building an AWS cloud-based internal web app for resource costing and forecasting across 12 lines of business.',
-    description: [
-      'Frontend (Angular): data-driven UI components powering forecasting and costing insights for 30,000+ enterprise resources.',
-      'Middle-end (TypeScript, Node.js, AWS): in-house REST APIs and API Gateway integrations for secure, efficient data transactions.',
-      'Backend (PostgreSQL, AWS): schema design and data querying supporting the core forecasting engine.',
-      'Batch & analytics: Python-based Lambda and Glue jobs processing Jira and Workday data to generate business insights for ~1M costable items.',
-      'CI/CD: manage GitHub Actions pipelines across all stacks for automated deployments to dev, test, and production.',
+      'Full-stack engineer in Corporate Technology’s Finance & Investments value stream, building a suite of data-driven internal corporate finance applications on AWS — and the AI tooling that helps my team ship them.',
+    bullets: [
+      'Build and maintain three data-driven corporate finance applications, including a resource costing & forecasting platform spanning 12 lines of business and 30,000+ enterprise resources.',
+      'Work across the stack: Angular frontends, TypeScript/Node.js REST APIs behind API Gateway, PostgreSQL schemas, and Python Lambda & Glue jobs processing ~1M costable items from Jira and Workday.',
+      'Build Claude-based agents, skills, and plugins that automate my team’s and org’s development and engineering workflows.',
+      'Pitched an internal proof of concept for AI-assisted engineering insights, which deepened my expertise in Claude plugins, AI telemetry, and tokenization.',
+      'Own the GitHub Actions CI/CD pipelines across all stacks for automated deployments to dev, test, and production.',
     ],
-    tags: ['Angular', 'TypeScript', 'Node.js', 'Python', 'PostgreSQL', 'AWS', 'GitHub Actions'],
+    tags: [
+      'Angular',
+      'TypeScript',
+      'Node.js',
+      'Python',
+      'PostgreSQL',
+      'AWS',
+      'Claude',
+      'AI Agents',
+      'GitHub Actions',
+    ],
   },
   {
-    id: 2,
     role: 'Software Engineer — EDP',
     company: 'Travelers',
     location: 'Hartford, CT',
-    startDate: 'June 2024',
-    endDate: 'June 2025',
-    description: [
+    start: '2024-06',
+    end: '2025-06',
+    bullets: [
       'Worked under the Corporate Technology LOB supporting the Corporate Finance & Investments value stream.',
       'Engineered robust, data-driven web applications serving internal enterprise users.',
     ],
     tags: ['Angular', 'TypeScript', 'Node.js', 'AWS'],
   },
   {
-    id: 3,
     role: 'Software Engineer Intern — TLDP',
     company: 'Travelers',
     location: 'Hartford, CT',
-    startDate: 'June 2023',
-    endDate: 'August 2023',
-    description: [
+    start: '2023-06',
+    end: '2023-08',
+    bullets: [
       'Developed in-house, data-driven cloud applications for the Finance Applications & Data value stream as part of the Technology Leadership Development Program (TLDP).',
       'Supported full-stack development on the Check Feed System (CFS): Angular frontend and .NET C# backend.',
     ],
     tags: ['Angular', '.NET', 'C#', 'AWS'],
   },
   {
-    id: 4,
     role: 'Data Engineer — YSM ACE',
     company: 'Yale University',
     location: 'New Haven, CT',
-    startDate: 'August 2022',
-    endDate: 'December 2022',
-    description: [
+    start: '2022-08',
+    end: '2022-12',
+    bullets: [
       'Continued part-time work for the YSM Analytics Center of Excellence following the summer internship.',
       'Led the YSM Space Analytics project: increased automation, efficiency, and visualization of space-related data to provide metrics for future space planning and funding across all YSM spaces.',
     ],
     tags: ['Python', 'SQL', 'Data Engineering', 'Analytics'],
   },
   {
-    id: 5,
     role: 'Data Analyst Intern',
     company: 'Yale University',
     location: 'New Haven, CT',
-    startDate: 'June 2022',
-    endDate: 'August 2022',
-    description: [
+    start: '2022-06',
+    end: '2022-08',
+    bullets: [
       'Yale ITS Summer 2022 internship with the Analytics Center of Excellence.',
       'Developed, tested, and delivered data analysis projects for the Yale School of Medicine.',
     ],
     tags: ['Python', 'SQL', 'Data Analysis'],
   },
 ];
+
+/** Copy for the /work page masthead and <head>. */
+export const workPage = {
+  title: 'The work so far.',
+  lede: 'From data analysis at the Yale School of Medicine to AI-driven, full-stack cloud engineering at Travelers — newest first, with each company’s roles grouped so the progression is easy to follow.',
+  description:
+    'Work experience of Vincenzo D’Aria — full-stack cloud engineering at Travelers and data engineering at Yale.',
+};
 
 export default experience;

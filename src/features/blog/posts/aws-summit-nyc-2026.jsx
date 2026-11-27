@@ -10,12 +10,14 @@ export const meta = {
 };
 
 const AwsSummitNYC2026 = () => (
-  <article>
-    <figure className="post-figure post-figure--portrait">
+  <>
+    <figure className="blog-figure--portrait">
       <img
         src="/images/aws-summit-nyc-2026-hero.jpg"
         alt="AWS Summit New York City banner hanging in the glass atrium of the Javits Center"
-        className="post-figure__img"
+        width="900"
+        height="1600"
+        decoding="async"
       />
     </figure>
 
@@ -30,8 +32,8 @@ const AwsSummitNYC2026 = () => (
         AWS Summit in New York City
       </a>
       , and the through-line was right there in the program:{' '}
-      <em>&quot;new agentic AI capabilities across work, development, and security.&quot;</em>{' '}
-      Dr. Swami Sivasubramanian (VP of Agentic AI at AWS) and Southwest Airlines CIO Lauren Woods
+      <em>&quot;new agentic AI capabilities across work, development, and security.&quot;</em> Dr.
+      Swami Sivasubramanian (VP of Agentic AI at AWS) and Southwest Airlines CIO Lauren Woods
       headlined a day where almost every keynote, breakout, and booth was about{' '}
       <strong>agentic AI</strong> — systems that don&apos;t just answer, but plan, call tools, and
       take action on your behalf. The new services (Amazon Quick, AWS Context, Bedrock AgentCore,
@@ -58,32 +60,36 @@ const AwsSummitNYC2026 = () => (
       into DynamoDB streams, Lambda triggers, and a Bedrock agent that can look up runbooks and file
       incident reports — was walked through failure mode by failure mode. The lesson: when the agent
       is allowed to read user-supplied text <em>and</em> take privileged actions in the same loop,
-      <strong> prompt injection stops being a party trick.</strong> Crafted input from a customer-
-      facing field nudged the payment workflow into carrying out actions no one intended. The fix
-      wasn&apos;t a smarter model — it was scoping tool permissions, separating the untrusted input
-      channel from the action channel, and putting hard limits on what the agent can do without
-      sign-off.
+      <strong> prompt injection stops being a party trick.</strong> Crafted input from a
+      customer-facing field nudged the payment workflow into carrying out actions no one intended.
+      The fix wasn&apos;t a smarter model — it was scoping tool permissions, separating the
+      untrusted input channel from the action channel, and putting hard limits on what the agent can
+      do without sign-off.
     </p>
-    <figure className="post-figure">
+    <figure>
       <img
         src="/images/aws-summit-nyc-2026-keynote.jpg"
         alt="Conference mainstage with a slide reading Telemetry, Context, Reasoning, Actions"
-        className="post-figure__img"
+        width="1600"
+        height="1200"
+        loading="lazy"
+        decoding="async"
       />
-      <figcaption className="post-figure__caption">
+      <figcaption>
         Telemetry → Context → Reasoning → Actions. Every stage in an agent loop is a place a
         guardrail has to live.
       </figcaption>
     </figure>
     <p>
       The security vendors are leaning into this hard. Wiz showed a three-agent model that treats
-      security as a closed loop: a <strong>Red / offensive agent</strong> that probes the environment
-      through the lens of an external adversary and generates realistic attack hypotheses, a{' '}
-      <strong>Blue / defensive agent</strong> that automates threat hunting and validates alerts
-      against full telemetry, and a <strong>Green / resolution agent</strong> that turns confirmed
-      findings into prioritized remediation and drives down mean-time-to-remediation. Offense sharpens
-      detection, defense validates what actually matters, remediation feeds back into the next round
-      of offense. AWS pitched the same philosophy at the platform level with{' '}
+      security as a closed loop: a <strong>Red / offensive agent</strong> that probes the
+      environment through the lens of an external adversary and generates realistic attack
+      hypotheses, a <strong>Blue / defensive agent</strong> that automates threat hunting and
+      validates alerts against full telemetry, and a <strong>Green / resolution agent</strong> that
+      turns confirmed findings into prioritized remediation and drives down
+      mean-time-to-remediation. Offense sharpens detection, defense validates what actually matters,
+      remediation feeds back into the next round of offense. AWS pitched the same philosophy at the
+      platform level with{' '}
       <a
         href="https://aws.amazon.com/blogs/security/introducing-aws-continuum-security-at-machine-speed/"
         target="_blank"
@@ -121,10 +127,10 @@ const AwsSummitNYC2026 = () => (
     </p>
     <p>
       Why that matters: the expensive gap on most teams isn&apos;t writing code — it&apos;s the
-      translation layer between &quot;what the business needs&quot; and &quot;what the system does.&quot;
-      When an agent can pull business context, requirements, and data sources into one place, the
-      product manager&apos;s intent and the engineer&apos;s implementation start converging on the
-      same artifact. A few other announcements reinforced the theme:
+      translation layer between &quot;what the business needs&quot; and &quot;what the system
+      does.&quot; When an agent can pull business context, requirements, and data sources into one
+      place, the product manager&apos;s intent and the engineer&apos;s implementation start
+      converging on the same artifact. A few other announcements reinforced the theme:
     </p>
     <ul>
       <li>
@@ -143,8 +149,8 @@ const AwsSummitNYC2026 = () => (
         >
           <strong>AWS Transform</strong>
         </a>{' '}
-        does continuous modernization — keeping a codebase current behind the scenes so modernization
-        stops being a quarterly project.
+        does continuous modernization — keeping a codebase current behind the scenes so
+        modernization stops being a quarterly project.
       </li>
       <li>
         The{' '}
@@ -161,13 +167,16 @@ const AwsSummitNYC2026 = () => (
     </p>
 
     <h3>3. Agents aren&apos;t capable without humans</h3>
-    <figure className="post-figure post-figure--portrait">
+    <figure className="blog-figure--portrait">
       <img
         src="/images/aws-summit-nyc-2026-robot.jpg"
         alt="Vincenzo D'Aria standing next to a humanoid robot on the AWS Summit expo floor"
-        className="post-figure__img"
+        width="990"
+        height="1600"
+        loading="lazy"
+        decoding="async"
       />
-      <figcaption className="post-figure__caption">
+      <figcaption>
         The expo floor was full of autonomy demos — and every serious one had a person in the loop.
       </figcaption>
     </figure>
@@ -176,8 +185,8 @@ const AwsSummitNYC2026 = () => (
       <strong>humans-in-the-loop are what make agent workflows actually work.</strong> People keep
       agents inside their execution guardrails, catch context drift before it compounds, and approve
       the irreversible steps. Just as importantly, a human checkpoint is what makes the whole thing{' '}
-      <strong>auditable</strong> — you need a record of who approved what, and why, for compliance and
-      legal reasons long before you need it for peace of mind.
+      <strong>auditable</strong> — you need a record of who approved what, and why, for compliance
+      and legal reasons long before you need it for peace of mind.
     </p>
     <p>
       Even the tooling built for speed assumes this.{' '}
@@ -185,11 +194,10 @@ const AwsSummitNYC2026 = () => (
         <strong>Bedrock AgentCore</strong>
       </a>{' '}
       is designed to take you from idea to working agent in minutes with no orchestration or
-      infrastructure
-      setup, any model you want, plus web search that grounds agents in current, accurate
-      information without data or queries ever leaving AWS, and <strong>Bedrock Managed Knowledge
-      Bases</strong> for fully managed RAG over enterprise data. Fast to stand up — and still meant to
-      run with a person watching the parts that count.
+      infrastructure setup, any model you want, plus web search that grounds agents in current,
+      accurate information without data or queries ever leaving AWS, and{' '}
+      <strong>Bedrock Managed Knowledge Bases</strong> for fully managed RAG over enterprise data.
+      Fast to stand up — and still meant to run with a person watching the parts that count.
     </p>
     <p>
       Takeaway: &quot;autonomous&quot; is a spectrum, and the right amount of human is a design
@@ -217,10 +225,10 @@ const AwsSummitNYC2026 = () => (
       If you&apos;re building with agents right now, start from the guardrails and work outward. Map
       the blast radius of every tool your agent can call, decide where a human has to say yes, and
       make sure every one of those decisions leaves a trail. The power is already here and it&apos;s
-      cheap to access — the differentiator in 2026 is whether you can deploy it safely. I&apos;d love
-      to compare notes if you&apos;re working through the same problems.
+      cheap to access — the differentiator in 2026 is whether you can deploy it safely. I&apos;d
+      love to compare notes if you&apos;re working through the same problems.
     </p>
-  </article>
+  </>
 );
 
 export default AwsSummitNYC2026;

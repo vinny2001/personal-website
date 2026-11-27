@@ -1,0 +1,26 @@
+/* The biography reads like the opening of a feature: the first paragraph is a
+   larger standfirst with a serif drop cap; the rest is regular prose. */
+
+.bio__text > p:first-child {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+.bio__text > p:first-child::first-letter {
+  font-family: var(--font-display);
+  color: var(--ink);
+  initial-letter: 3;
+  margin-right: 0.65rem;
+}
+
+/* Firefox has no `initial-letter` yet: approximate it with a float. */
+@supports not (initial-letter: 3) {
+  .bio__text > p:first-child::first-letter {
+    float: left;
+    font-size: 5em;
+    line-height: 0.78;
+    padding: 0.04em 0.08em 0 0;
+    margin-right: 0;
+  }
+}

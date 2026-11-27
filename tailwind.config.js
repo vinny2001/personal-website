@@ -1,25 +1,37 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./src/**/*.{js,jsx}'],
-  // `prefers-color-scheme` drives the theme site-wide (see src/index.css), so
-  // Tailwind's `dark:` variant should follow the OS setting, not a class.
-  darkMode: 'media',
-  // The site already ships a full global stylesheet; keep Tailwind's reset out
-  // of the way and only pull in the utilities we opt into per component.
-  corePlugins: { preflight: false },
+  content: ['./index.html', './src/**/*.{js,jsx}'],
+  // The theme is driven by `data-theme` on <html> (set before first paint in
+  // index.html, toggled by hooks/useTheme). Prefer the token colours below —
+  // they already flip with the theme — over `dark:` utilities.
+  darkMode: ['selector', '[data-theme="dark"]'],
   theme: {
     extend: {
       colors: {
-        base: 'rgb(var(--bg-primary-rgb) / <alpha-value>)',
-        'base-alt': 'var(--bg-secondary)',
-        surface: 'var(--bg-card)',
-        ink: 'var(--text-primary)',
-        'ink-soft': 'var(--text-secondary)',
-        'ink-muted': 'var(--text-muted)',
+        paper: 'rgb(var(--paper-rgb) / <alpha-value>)',
+        'paper-raised': 'var(--paper-raised)',
+        'paper-sunken': 'var(--paper-sunken)',
+        ink: 'var(--ink)',
+        'ink-soft': 'var(--ink-soft)',
+        'ink-muted': 'var(--ink-muted)',
+        rule: 'var(--rule)',
         accent: 'var(--accent)',
         'accent-hover': 'var(--accent-hover)',
-        'accent-subtle': 'var(--accent-subtle)',
-        hairline: 'var(--border)',
+        'accent-wash': 'var(--accent-wash)',
+      },
+      // Bare `border` / `divide` utilities draw the editorial hairline.
+      borderColor: { DEFAULT: 'var(--rule)' },
+      fontFamily: {
+        display: 'var(--font-display)',
+        sans: 'var(--font-sans)',
+        mono: 'var(--font-mono)',
+      },
+      maxWidth: {
+        page: '72rem',
+        reading: '42rem',
+      },
+      transitionTimingFunction: {
+        'out-expo': 'var(--ease-out)',
       },
     },
   },
