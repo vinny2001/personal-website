@@ -27,9 +27,17 @@ const SkillIndex = ({ copy, groups }) => (
             <span className="kicker text-[0.8rem] text-ink">{category}</span>
           </dt>
           <dd className="md:col-span-8">
-            <ul className="grid grid-cols-2 gap-x-6 gap-y-1.5 sm:grid-cols-3">
+            <ul className="grid grid-cols-1 gap-x-6 gap-y-2 min-[420px]:grid-cols-2 sm:grid-cols-3">
               {skills.map((skill) => (
-                <li key={skill} className="font-display text-xl leading-snug text-ink sm:text-2xl">
+                <li
+                  key={skill}
+                  className="group/skill flex items-baseline gap-2.5 font-display text-xl leading-snug text-ink sm:text-2xl"
+                >
+                  {/* Square bullet (the site's status-mark motif); lifts to the accent on hover. */}
+                  <span
+                    aria-hidden="true"
+                    className="size-1.5 shrink-0 -translate-y-[0.3em] bg-ink-muted transition-colors duration-300 group-hover/skill:bg-accent"
+                  />
                   {skill}
                 </li>
               ))}
